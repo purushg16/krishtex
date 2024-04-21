@@ -1,0 +1,29 @@
+:root {
+  font-family: Inter sans-serif;
+
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h3,
+h2,
+h4,
+h5,
+h6 {
+  font-family: Oswald !important;
+  font-weight: bold;
+}
+
+p,
+a {
+  font-family: Roboto !important;
+}
+
+button {
+  border-radius: 99px !important;
+}

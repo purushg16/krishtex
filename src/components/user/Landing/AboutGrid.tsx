@@ -4,7 +4,12 @@ import FeatureCard from "./FeatureCard";
 
 const AboutGrid = () => {
   return (
-    <SimpleGrid w="100%" columns={{ base: 1, md: 1, lg: 2 }} spacing={8}>
+    <SimpleGrid
+      w="100%"
+      columns={{ base: 1, md: 1, lg: 2 }}
+      spacing={8}
+      px={{ base: 4, md: 8, lg: 12 }}
+    >
       <VStack w="100%" gap={4} align="start">
         <RHeading text="Benefits you get when you use our products!" />
         <RText
@@ -17,7 +22,7 @@ const AboutGrid = () => {
           <FeatureCard />
         </HStack>
       </VStack>
-      <Box w="100%" minH={280} h="100%" borderRadius={20} bg="gray.100" />
+      <Box w="100%" minH={280} h="100%" bg="gray.100" />
     </SimpleGrid>
   );
 };

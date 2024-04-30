@@ -4,12 +4,14 @@ import SectionCard from "./SectionCard";
 
 const SectionsGrid = () => {
   return (
-    <VStack w="100%" align="start" gap={8}>
+    <VStack w="100%" align="start" gap={8} px={{ base: 4, md: 8, lg: 12 }}>
       <HStack w="100%" justify="space-between">
-        <RHeading text="Explore all our sections" />
-        <Button variant="outline"> Pick your need </Button>
+        <RHeading text="Top categories" />
+        <Button variant="outline" colorScheme="primary">
+          View All
+        </Button>
       </HStack>
-      <SimpleGrid columns={{ base: 2, md: 3 }} spacing={8} w="100%">
+      <SimpleGrid columns={{ base: 2, md: 3, lg: 4 }} spacing={8} w="100%">
         <SectionCard />
         <SectionCard />
         <SectionCard />

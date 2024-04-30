@@ -1,6 +1,14 @@
-import { Box, VStack } from "@chakra-ui/react";
-import { Label } from "../../utilities/Typography";
+import {
+  Box,
+  Divider,
+  HStack,
+  Highlight,
+  Icon,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 import FooterStack from "./FooterStack";
+import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -9,20 +17,27 @@ const Footer = () => {
       gap={4}
       w="100%"
       px={{ base: 4, md: 8, lg: 12 }}
-      py={12}
-      mt={12}
-      bg="secondary.50"
+      py={20}
+      mt={32}
+      bg="primary.600"
+      color="white"
     >
       <FooterStack />
-      <Box
-        w="100%"
-        pt={8}
-        borderTop="1px solid"
-        borderColor="gray.200"
-        textAlign="center"
-        gap={4}
-      >
-        <Label text="&copy; 2024 Krishtex - All rights reserved" />
+      <Divider my={12} />
+      <Box w="100%" textAlign="center" gap={4}>
+        <Text fontSize={{ base: "sm", md: "md" }} fontWeight={600}>
+          <Highlight
+            query={`Krishtex`}
+            styles={{ color: "yellow" }}
+            children="&copy; 2024 Krishtex - All rights reserved"
+          />
+        </Text>
+        <HStack w="100%" justify="center" gap={8} pt={4}>
+          <Icon as={Facebook} boxSize={6} />
+          <Icon as={Instagram} boxSize={6} />
+          <Icon as={Twitter} boxSize={6} />
+          <Icon as={Youtube} boxSize={6} />
+        </HStack>
       </Box>
     </VStack>
   );

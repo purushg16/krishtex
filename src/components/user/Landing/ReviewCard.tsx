@@ -4,10 +4,10 @@ import { Label, RText } from "../../../utilities/Typography";
 const ReviewCard = () => {
   return (
     <VStack
-      w="100%"
+      w={350}
+      minW={350}
       aspectRatio="4/3"
-      bg="gray.50"
-      borderRadius={10}
+      bg="secondary.50"
       boxShadow="base"
       cursor="pointer"
       align="start"

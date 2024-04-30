@@ -1,5 +1,5 @@
 import { Button, Flex, HStack, Icon, Show, VStack } from "@chakra-ui/react";
-import { ShieldCheck, Trophy } from "lucide-react";
+import { Factory, ShieldCheck, Trophy } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { RHeading, RText } from "../../utilities/Typography";
 import NavbarLinkStack from "./NavbarLinkStack";
@@ -25,7 +25,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <VStack w="100%" align="start">
+    <VStack w="100%" align="start" gap={0}>
       <Flex
         w="100%"
         justify="space-between"
@@ -33,10 +33,13 @@ const Navbar = () => {
         px={{ base: 4, md: 8, lg: 12 }}
       >
         <VStack align="start">
-          <VStack align="start" gap={0}>
-            <RHeading text="Krishtex" />
-            <RText weight="bold" text="Enterprises" />
-          </VStack>
+          <HStack>
+            <Icon as={Factory} boxSize={12} />
+            <VStack align="start" gap={0}>
+              <RHeading text="Krishtex" />
+              <RHeading small text="Enterprises" />
+            </VStack>
+          </HStack>
         </VStack>
         <Show above="md">
           <HStack gap={8}>
@@ -73,8 +76,7 @@ const Navbar = () => {
       >
         <NavbarLinkStack />
         <Button colorScheme="primary" order={1}>
-          {" "}
-          Schedule a call{" "}
+          Schedule a call
         </Button>
       </Flex>
     </VStack>

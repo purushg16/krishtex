@@ -10,6 +10,7 @@ const FeatureCard = () => {
       <Label
         text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, quibusdam!"
         color="gray"
+        weight="normal"
       />
     </VStack>
   );

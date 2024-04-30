@@ -1,11 +1,11 @@
-import { HStack, IconButton, SimpleGrid, Stack } from "@chakra-ui/react";
+import { Box, Flex, HStack, IconButton, Stack, VStack } from "@chakra-ui/react";
 import { RHeading } from "../../../utilities/Typography";
 import { ArrowUpLeft, ArrowUpRight } from "lucide-react";
 import ReviewCard from "./ReviewCard";
 
 const ReviewGrid = () => {
   return (
-    <SimpleGrid columns={{ base: 1, md: 1, lg: 2 }} w="100%">
+    <VStack gap={8} align="start" px={{ base: 4, md: 8, lg: 12 }} w="100%">
       <Stack
         w="100%"
         direction={{ base: "row", md: "row", lg: "column" }}
@@ -22,11 +22,18 @@ const ReviewGrid = () => {
           <IconButton aria-label="back" icon={<ArrowUpRight />} />
         </HStack>
       </Stack>
-      <SimpleGrid w="100%" columns={{ base: 3, md: 3, lg: 2 }} spacing={4}>
-        <ReviewCard />
-        <ReviewCard />
-      </SimpleGrid>
-    </SimpleGrid>
+      <Box w="100%" maxW="100%" overflowX="scroll">
+        <Flex w="100%" gap={8}>
+          <ReviewCard />
+          <ReviewCard />
+          <ReviewCard />
+          <ReviewCard />
+          <ReviewCard />
+          <ReviewCard />
+          <ReviewCard />
+        </Flex>
+      </Box>
+    </VStack>
   );
 };
 

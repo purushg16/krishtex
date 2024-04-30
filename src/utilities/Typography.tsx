@@ -17,15 +17,15 @@ interface Props {
     | "uppercase";
 }
 
-const RHeading = ({ text, big = false, small, color }: Props) => {
+const RHeading = ({ text, big = false, small, color, weight }: Props) => {
   const fontSize = big
     ? { base: "2xl", sm: "3xl", md: "5xl", lg: "6xl" }
     : small
-    ? { base: "lg", sm: "xl", md: "3xl", lg: "3xl" }
-    : { base: "lg", sm: "2xl", md: "3xl", lg: "4xl" };
+    ? { base: "lg", sm: "xl", md: "xl" }
+    : { base: "2xl", md: "3xl", lg: "4xl" };
 
   return (
-    <Heading fontSize={fontSize} color={color}>
+    <Heading fontSize={fontSize} color={color} fontWeight={weight}>
       {text}
     </Heading>
   );

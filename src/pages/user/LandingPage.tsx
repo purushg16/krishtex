@@ -11,7 +11,7 @@ const LandingPage = () => {
   return (
     <Flex flexDir="column" w="100%">
       <Navbar />
-      <VStack align="start" px={{ base: 4, md: 8, lg: 12 }} py={4} gap={32}>
+      <VStack align="start" gap={{ base: 24, md: 32 }}>
         <WelcomeBanner />
         <StatisticsGrid />
         <AboutGrid />

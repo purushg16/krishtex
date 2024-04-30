@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Flex } from "@chakra-ui/react";
-import { RHeading, RText } from "../../../utilities/Typography";
 import video from "../../../data/vid.mp4";
 
 const VideoPlayer = () => {
@@ -42,21 +41,13 @@ const VideoPlayer = () => {
   }, [preloaded]);
 
   return (
-    <Flex
-      flexDir="column"
-      p={8}
-      h={550}
-      borderRadius={20}
-      my={8}
-      pos="relative"
-      overflow="hidden"
-    >
-      <RText text="Welcome to Krishtex" />
+    <Flex flexDir="column" h={550} mb={8} pos="relative" overflow="hidden">
+      {/* <RText text="Welcome to Krishtex" />
       <RHeading
         color="red"
         small
         text="Krishtex Are Best Of The Rest In The Field"
-      />
+      /> */}
       <video
         id="background-video"
         autoPlay

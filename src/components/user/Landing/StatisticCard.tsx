@@ -3,8 +3,14 @@ import { RHeading, RText } from "../../../utilities/Typography";
 
 const StatisticCard = () => {
   return (
-    <VStack gap={4}>
-      <RHeading text="950+" big />
+    <VStack
+      p={8}
+      border="1px solid"
+      borderColor="secondary.50"
+      borderRadius={20}
+      boxShadow="md"
+    >
+      <RHeading text="905" big />
       <RText
         text="Lorem ipsum dolor, sit amet consectetur adipisicing elit."
         align="center"

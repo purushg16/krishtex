@@ -1,12 +1,12 @@
 import { Button, HStack, Icon, SimpleGrid, VStack } from "@chakra-ui/react";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { RText } from "../../utilities/Typography";
+import { RHeading, RText } from "../../utilities/Typography";
 
 const FooterStack = () => {
   return (
     <SimpleGrid columns={{ base: 1, md: 1, lg: 2 }} spacing={12} w="100%">
       <VStack align="start" gap={0}>
-        <RText weight="bold" text="Krishtex" />
+        <RHeading weight="bold" text="Krishtex" />
         <RText
           text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, ullam."
           small

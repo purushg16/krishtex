@@ -10,7 +10,12 @@ const WelcomeBanner = () => {
       <Box w="100%">
         <VideoPlayer />
       </Box>
-      <SimpleGrid columns={{ base: 1, md: 2 }} w="100%" spacingY={4}>
+      <SimpleGrid
+        columns={{ base: 1, md: 2 }}
+        w="100%"
+        spacingY={4}
+        px={{ base: 4, md: 8, lg: 12 }}
+      >
         <RText
           text="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt
           quod error perspiciatis neque ex et nulla maxime, ab esse quia eveniet

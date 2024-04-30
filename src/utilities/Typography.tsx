@@ -8,13 +8,20 @@ interface Props {
   color?: "white" | "gray" | string;
   nowrap?: boolean;
   align?: AlignSetting;
+  textTransform?:
+    | "capitalize"
+    | "full-size-kana"
+    | "full-width"
+    | "lowercase"
+    | "none"
+    | "uppercase";
 }
 
 const RHeading = ({ text, big = false, small, color }: Props) => {
   const fontSize = big
     ? { base: "2xl", sm: "3xl", md: "5xl", lg: "6xl" }
     : small
-    ? { base: "md", sm: "lg", md: "xl", lg: "2xl" }
+    ? { base: "lg", sm: "xl", md: "3xl", lg: "3xl" }
     : { base: "lg", sm: "2xl", md: "3xl", lg: "4xl" };
 
   return (
@@ -49,14 +56,21 @@ const RText = ({
   );
 };
 
-const Label = ({ text, color, weight = "normal", nowrap = false }: Props) => (
+const Label = ({
+  text,
+  color,
+  weight = "bold",
+  nowrap = false,
+  textTransform,
+}: Props) => (
   <Text
-    fontSize={{ base: "xs", sm: "xs", md: "sm", lg: "sm" }}
+    fontSize={{ base: "sm", md: "md" }}
     fontWeight={weight}
     color={color}
     m={0}
     p={0}
     whiteSpace={nowrap ? "nowrap" : "normal"}
+    textTransform={textTransform}
   >
     {text}
   </Text>

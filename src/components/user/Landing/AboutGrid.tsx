@@ -1,5 +1,5 @@
 import { Divider, HStack, SimpleGrid, VStack, Box } from "@chakra-ui/react";
-import { RHeading, RText } from "../../../utilities/Typography";
+import { Name, RText } from "../../../utilities/Typography";
 import FeatureCard from "./FeatureCard";
 
 const AboutGrid = () => {
@@ -11,7 +11,7 @@ const AboutGrid = () => {
       px={{ base: 4, md: 8, lg: 12 }}
     >
       <VStack w="100%" gap={4} align="start">
-        <RHeading text="Benefits you get when you use our products!" />
+        <Name text="Benefits you get when you use our products!" />
         <RText
           small
           text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore omnis quasi, neque illum numquam minus perspiciatis culpa, doloribus tenetur doloremque aliquam fuga nostrum reiciendis mollitia, nam debitis quis nisi est!"

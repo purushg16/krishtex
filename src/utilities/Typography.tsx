@@ -17,12 +17,12 @@ interface Props {
     | "uppercase";
 }
 
-const RHeading = ({ text, big = false, small, color, weight }: Props) => {
+const Title = ({ text, big = false, small, color, weight }: Props) => {
   const fontSize = big
-    ? { base: "2xl", sm: "3xl", md: "5xl", lg: "6xl" }
+    ? { base: "32px", md: "52px" }
     : small
-    ? { base: "lg", sm: "xl", md: "xl" }
-    : { base: "2xl", md: "3xl", lg: "4xl" };
+    ? { base: "32px", md: "42px" }
+    : { base: "32px", md: "48px" };
 
   return (
     <Heading fontSize={fontSize} color={color} fontWeight={weight}>
@@ -31,49 +31,38 @@ const RHeading = ({ text, big = false, small, color, weight }: Props) => {
   );
 };
 
-const RText = ({
-  text,
-  small = false,
-  weight = "normal",
-  color,
-  align = "left",
-}: Props) => {
-  const fontSize = small
-    ? { base: "xs", sm: "xs", md: "sm", lg: "sm" }
-    : { base: "xs", sm: "sm", md: "md", lg: "lg" };
-
+const Name = ({ text, color, textTransform }: Props) => {
   return (
-    <Text
-      textAlign={align}
-      fontSize={fontSize}
-      fontWeight={weight}
-      m={0}
-      p={0}
+    <Heading
+      fontSize={{ base: "20px", md: "28px" }}
+      fontWeight="semibold"
       color={color}
+      whiteSpace={"nowrap"}
+      textTransform={textTransform}
     >
+      {text}
+    </Heading>
+  );
+};
+
+const Paragraph = ({ text, color, align = "left" }: Props) => {
+  return (
+    <Text textAlign={align} fontSize={"16px"} color={color}>
       {text}
     </Text>
   );
 };
 
-const Label = ({
-  text,
-  color,
-  weight = "bold",
-  nowrap = false,
-  textTransform,
-}: Props) => (
+const Label = ({ text, color, textTransform }: Props) => (
   <Text
-    fontSize={{ base: "sm", md: "md" }}
-    fontWeight={weight}
+    fontSize={"16px"}
+    fontWeight="semibold"
     color={color}
-    m={0}
-    p={0}
-    whiteSpace={nowrap ? "nowrap" : "normal"}
+    whiteSpace={"nowrap"}
     textTransform={textTransform}
   >
     {text}
   </Text>
 );
 
-export { RHeading, RText, Label };
+export { Title as RHeading, Paragraph as RText, Label, Name };

@@ -1,5 +1,5 @@
 import { Box, Flex, HStack, IconButton, Stack, VStack } from "@chakra-ui/react";
-import { RHeading } from "../../../utilities/Typography";
+import { Name } from "../../../utilities/Typography";
 import { ArrowUpLeft, ArrowUpRight } from "lucide-react";
 import ReviewCard from "./ReviewCard";
 
@@ -12,7 +12,7 @@ const ReviewGrid = () => {
         gap={4}
         justify={{ base: "space-between", md: "space-between", lg: "normal" }}
       >
-        <RHeading text="Read what our client are saying " />
+        <Name text="Read what our client are saying " />
         <HStack gap={4}>
           <IconButton
             aria-label="back"

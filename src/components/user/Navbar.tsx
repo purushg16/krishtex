@@ -36,7 +36,7 @@ const Navbar = () => {
           <HStack>
             <Icon as={Factory} boxSize={12} />
             <VStack align="start" gap={0}>
-              <RHeading text="Krishtex" />
+              <RHeading small text="Krishtex" />
               <RHeading small text="Enterprises" />
             </VStack>
           </HStack>

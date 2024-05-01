@@ -1,5 +1,5 @@
 import { Box, VStack } from "@chakra-ui/react";
-import { RHeading } from "../../../utilities/Typography";
+import { Label } from "../../../utilities/Typography";
 
 const SectionCard = () => {
   return (
@@ -20,7 +20,7 @@ const SectionCard = () => {
         borderColor="primary.500"
         pl={2}
       >
-        <RHeading weight="bold" small text="Lorem Ipsum" />
+        <Label text="Lorem Ipsum" />
       </VStack>
     </VStack>
   );

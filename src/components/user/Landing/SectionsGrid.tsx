@@ -1,12 +1,12 @@
 import { Button, HStack, SimpleGrid, VStack } from "@chakra-ui/react";
-import { RHeading } from "../../../utilities/Typography";
+import { Name } from "../../../utilities/Typography";
 import SectionCard from "./SectionCard";
 
 const SectionsGrid = () => {
   return (
     <VStack w="100%" align="start" gap={8} px={{ base: 4, md: 8, lg: 12 }}>
       <HStack w="100%" justify="space-between">
-        <RHeading text="Top categories" />
+        <Name text="Top categories" />
         <Button variant="outline" colorScheme="primary">
           View All
         </Button>

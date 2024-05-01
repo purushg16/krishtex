@@ -57,9 +57,9 @@ const Paragraph = ({ text, color, align = "left" }: Props) => {
   );
 };
 
-const Label = ({ text, color, textTransform }: Props) => (
+const Label = ({ text, color, textTransform, small }: Props) => (
   <Text
-    fontSize={"16px"}
+    fontSize={small ? "12px" : "16px"}
     fontWeight={"semibold"}
     color={color}
     whiteSpace={"nowrap"}

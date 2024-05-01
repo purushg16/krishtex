@@ -26,12 +26,13 @@ const OrdersPage = () => {
       </VStack>
       <Box
         w="100%"
-        maxH={500}
+        maxH={{ base: "100%", md: 500 }}
         overflowY="scroll"
         my={4}
         borderTop="1px solid"
         borderColor="blackAlpha.300"
         pt={4}
+        pb={28}
       >
         <TableContainer>
           <Table>

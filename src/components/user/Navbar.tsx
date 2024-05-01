@@ -68,6 +68,7 @@ const Navbar = () => {
         justify="space-between"
         w="100%"
         borderTop="1px solid"
+        borderBottom="1px solid"
         borderColor="blackAlpha.200"
         position={isFixed ? "fixed" : "static"}
         top={isFixed ? 0 : "auto"}

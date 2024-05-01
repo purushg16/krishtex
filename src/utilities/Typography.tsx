@@ -50,6 +50,7 @@ const Paragraph = ({ text, color, align = "left" }: Props) => {
       textAlign={align}
       fontSize={{ base: "12px", md: "16px" }}
       color={color}
+      fontWeight={400}
     >
       {text}
     </Text>

@@ -25,10 +25,13 @@ const Footer = () => {
       <FooterStack />
       <Divider my={12} />
       <Box w="100%" textAlign="center" gap={4}>
-        <Text fontSize={{ base: "sm", md: "md" }} fontWeight={600}>
+        <Text fontSize={{ base: "sm", md: "md" }} fontWeight={400}>
           <Highlight
             query={`Krishtex`}
-            styles={{ color: "yellow" }}
+            styles={{
+              color: "secondary.500",
+              fontWeight: 600,
+            }}
             children="&copy; 2024 Krishtex - All rights reserved"
           />
         </Text>

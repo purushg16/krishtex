@@ -37,7 +37,6 @@ const Name = ({ text, color, textTransform }: Props) => {
       fontSize={{ base: "20px", md: "28px" }}
       fontWeight="semibold"
       color={color}
-      whiteSpace={"nowrap"}
       textTransform={textTransform}
     >
       {text}
@@ -47,7 +46,11 @@ const Name = ({ text, color, textTransform }: Props) => {
 
 const Paragraph = ({ text, color, align = "left" }: Props) => {
   return (
-    <Text textAlign={align} fontSize={"16px"} color={color}>
+    <Text
+      textAlign={align}
+      fontSize={{ base: "12px", md: "16px" }}
+      color={color}
+    >
       {text}
     </Text>
   );
@@ -56,7 +59,7 @@ const Paragraph = ({ text, color, align = "left" }: Props) => {
 const Label = ({ text, color, textTransform }: Props) => (
   <Text
     fontSize={"16px"}
-    fontWeight="semibold"
+    fontWeight={"semibold"}
     color={color}
     whiteSpace={"nowrap"}
     textTransform={textTransform}

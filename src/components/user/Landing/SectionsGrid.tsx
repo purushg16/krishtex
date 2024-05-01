@@ -11,7 +11,11 @@ const SectionsGrid = () => {
           View All
         </Button>
       </HStack>
-      <SimpleGrid columns={{ base: 2, md: 3, lg: 4 }} spacing={8} w="100%">
+      <SimpleGrid
+        columns={{ base: 2, md: 3, lg: 4 }}
+        spacing={{ base: 4, md: 8 }}
+        w="100%"
+      >
         <SectionCard />
         <SectionCard />
         <SectionCard />

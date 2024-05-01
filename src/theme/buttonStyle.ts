@@ -4,6 +4,7 @@ export default defineStyleConfig({
   // Styles for the base style
   baseStyle: {
     borderRadius: "none",
+    fontSize: "16px",
   },
   // Styles for the size variations
   sizes: {},

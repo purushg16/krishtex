@@ -17,7 +17,7 @@ const FooterStack = () => {
                   changes our industrial systems, we are dedicated to provides the best solutions 
                   to our valued customers.`}
           />
-          <Button color="red" mt={4}>
+          <Button colorScheme="secondary" mt={4}>
             Product Enquiry
           </Button>
         </VStack>

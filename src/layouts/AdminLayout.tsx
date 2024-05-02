@@ -1,4 +1,4 @@
-import { Box, Flex, Grid, GridItem, Show } from "@chakra-ui/react";
+import { Flex, Grid, GridItem, Show } from "@chakra-ui/react";
 import AdminSideBar from "../components/admin/AdminSideBar";
 import { Outlet } from "react-router";
 import AdminAppBar from "../components/admin/AdminAppBar";
@@ -10,18 +10,21 @@ const AdminLayout = () => {
       mx="auto"
       justify="center"
       align="center"
-      h="100vh"
-      overflowY="scroll"
+      h="100svh"
+      maxH="100svh"
+      overflowY="clip"
+      pos="relative"
+      bg={{ base: "blackAlpha.50", md: "none" }}
     >
       <Grid
-        overflowY="scroll"
         h={{ base: "100%", md: "max-content" }}
         maxH={{ base: "100%", md: "max-content" }}
+        overflowY="scroll"
         borderRadius={10}
         overflow="clip"
         minH={400}
         boxShadow="base"
-        bg="blackAlpha.50"
+        bg={{ base: "none", md: "blackAlpha.50" }}
         w="100%"
         templateAreas={{
           base: `"main"`,
@@ -40,11 +43,10 @@ const AdminLayout = () => {
             <AdminSideBar />
           </GridItem>
         </Show>
-        <GridItem area={"main"} overflowY="scroll">
+        <GridItem area={"main"} overflowY="clip">
           <Outlet />
         </GridItem>
         <Show below="md">
-          <Box my={160} />
           <AdminAppBar />
         </Show>
       </Grid>

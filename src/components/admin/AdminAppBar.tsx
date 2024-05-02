@@ -1,7 +1,7 @@
-import { Flex, HStack, SimpleGrid, Tag, VStack } from "@chakra-ui/react";
-import { BoxIcon, ScrollText, SquareLibrary } from "lucide-react";
+import { Box, Flex, HStack, Icon, SimpleGrid } from "@chakra-ui/react";
+import { BoxIcon, Factory, ScrollText, SquareLibrary } from "lucide-react";
 import { useLocation } from "react-router";
-import { Name } from "../../utilities/Typography";
+import { Label } from "../../utilities/Typography";
 import AppBarButton from "./AppBarButton";
 
 const AdminAppBar = () => {
@@ -19,13 +19,18 @@ const AdminAppBar = () => {
       bg="primary.100"
     >
       <HStack w="100%" justify="space-between" px={4}>
-        <VStack align="start">
-          <Tag size="sm" colorScheme="green">
-            Admin
-          </Tag>
-          <Name color="black" text="Krishtex" />
-        </VStack>
-        <SimpleGrid columns={3} spacing={4}>
+        <Box
+          p={2}
+          bg="primary.300"
+          borderRadius={10}
+          border="1px solid"
+          borderColor="primary.600"
+          lineHeight="normal"
+        >
+          <Icon as={Factory} color="black" boxSize={4} />
+          <Label color="black" text="Krishtex" />
+        </Box>
+        <SimpleGrid columns={3} spacing={0} w="max-content">
           <AppBarButton
             route="products"
             active={location === "products"}

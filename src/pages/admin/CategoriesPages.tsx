@@ -3,7 +3,7 @@ import { Name } from "../../utilities/Typography";
 
 const CategoriesPages = () => {
   return (
-    <Stack p={4}>
+    <Stack p={4} h="100%">
       <VStack align="start" gap={4}>
         <Name text="Categories" color="black" />
         <Button size="xs" colorScheme="primary">
@@ -21,6 +21,12 @@ const CategoriesPages = () => {
         pb={28}
       >
         <SimpleGrid columns={{ base: 2, md: 3 }} spacing={4}>
+          <Box w="100" aspectRatio="3/2" bg="secondary.50" />
+          <Box w="100" aspectRatio="3/2" bg="secondary.50" />
+          <Box w="100" aspectRatio="3/2" bg="secondary.50" />
+          <Box w="100" aspectRatio="3/2" bg="secondary.50" />
+          <Box w="100" aspectRatio="3/2" bg="secondary.50" />
+          <Box w="100" aspectRatio="3/2" bg="secondary.50" />
           <Box w="100" aspectRatio="3/2" bg="secondary.50" />
           <Box w="100" aspectRatio="3/2" bg="secondary.50" />
           <Box w="100" aspectRatio="3/2" bg="secondary.50" />

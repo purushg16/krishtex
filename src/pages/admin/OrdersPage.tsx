@@ -17,7 +17,7 @@ import { Name } from "../../utilities/Typography";
 
 const OrdersPage = () => {
   return (
-    <Stack p={4}>
+    <Stack p={4} h="100%">
       <VStack align="start" gap={4}>
         <Name text="All Orders" color="black" />
         {/* <Button size="xs" colorScheme="primary">

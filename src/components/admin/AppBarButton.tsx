@@ -15,7 +15,6 @@ const AppBarButton = ({ active, route, icon }: Props) => {
   return (
     <VStack
       onClick={() => navigate(route)}
-      cursor="pointer"
       p={2}
       //   bg={active ? "primary.300" : "none"}
       borderRadius={10}

@@ -6,7 +6,7 @@ import AdminAppBar from "../components/admin/AdminAppBar";
 const AdminLayout = () => {
   return (
     <Flex
-      maxW={1300}
+      // maxW={1300}
       mx="auto"
       justify="center"
       align="center"
@@ -14,17 +14,15 @@ const AdminLayout = () => {
       maxH="100svh"
       overflowY="clip"
       pos="relative"
-      bg={{ base: "blackAlpha.50", md: "none" }}
+      // bg={{ base: "blackAlpha.50", md: "none" }}
     >
       <Grid
-        h={{ base: "100%", md: "max-content" }}
-        maxH={{ base: "100%", md: "max-content" }}
         overflowY="scroll"
-        borderRadius={10}
         overflow="clip"
         minH={400}
+        h="100%"
         boxShadow="base"
-        bg={{ base: "none", md: "blackAlpha.50" }}
+        // bg={{ base: "none", md: "whiteAlpha.400" }}
         w="100%"
         templateAreas={{
           base: `"main"`,
@@ -39,7 +37,12 @@ const AdminLayout = () => {
         fontWeight="bold"
       >
         <Show above="md">
-          <GridItem area={"nav"} h="100%">
+          <GridItem
+            area={"nav"}
+            h="100%"
+            borderRight="1px solid"
+            borderColor="blackAlpha.200"
+          >
             <AdminSideBar />
           </GridItem>
         </Show>

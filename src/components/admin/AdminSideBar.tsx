@@ -1,13 +1,16 @@
-import { Divider, HStack, Icon, Stack, Box, Button } from "@chakra-ui/react";
-import { Label } from "../../utilities/Typography";
-import { Link, useLocation } from "react-router-dom";
+import { Box, Button, Divider, HStack, Icon, Stack } from "@chakra-ui/react";
 import {
   BoxIcon,
   Factory,
+  MessageSquareQuote,
   Power,
   ScrollText,
   SquareLibrary,
+  SquarePen,
 } from "lucide-react";
+import { useLocation } from "react-router-dom";
+import { Label } from "../../utilities/Typography";
+import SideBarButton from "./SideBarButton";
 
 const AdminSideBar = () => {
   const location = useLocation().pathname.split("/")[2];
@@ -17,7 +20,7 @@ const AdminSideBar = () => {
       gap={8}
       align="start"
       p={4}
-      bg="#ffffff"
+      bg="gray.50"
       h="100%"
       justify="space-between"
     >
@@ -37,57 +40,31 @@ const AdminSideBar = () => {
         </HStack>
         <Divider />
         <Stack align="start">
-          <Link to="products" style={{ width: "100%" }}>
-            <HStack
-              bg={location === "products" ? "primary.50" : "none"}
-              p={2}
-              px={4}
-              borderRadius={10}
-            >
-              <Icon
-                as={BoxIcon}
-                color={location === "products" ? "black" : "gray"}
-              />
-              <Label
-                text="Products"
-                color={location === "products" ? "black" : "gray"}
-              />
-            </HStack>
-          </Link>
-          <Link to="categories" style={{ width: "100%" }}>
-            <HStack
-              bg={location === "categories" ? "primary.50" : "none"}
-              p={2}
-              px={4}
-              borderRadius={10}
-            >
-              <Icon
-                as={SquareLibrary}
-                color={location === "categories" ? "black" : "gray"}
-              />
-              <Label
-                text="Categories"
-                color={location === "categories" ? "black" : "gray"}
-              />
-            </HStack>
-          </Link>
-          <Link to="orders" style={{ width: "100%" }}>
-            <HStack
-              bg={location === "orders" ? "primary.50" : "none"}
-              p={2}
-              px={4}
-              borderRadius={10}
-            >
-              <Icon
-                as={ScrollText}
-                color={location === "orders" ? "black" : "gray"}
-              />
-              <Label
-                text="Orders"
-                color={location === "orders" ? "black" : "gray"}
-              />
-            </HStack>
-          </Link>
+          <SideBarButton
+            icon={BoxIcon}
+            label="products"
+            active={location === "products"}
+          />
+          <SideBarButton
+            icon={SquareLibrary}
+            label="categories"
+            active={location === "categories"}
+          />
+          <SideBarButton
+            icon={ScrollText}
+            label="orders"
+            active={location === "orders"}
+          />
+          <SideBarButton
+            icon={SquarePen}
+            label="reviews"
+            active={location === "reviews"}
+          />
+          <SideBarButton
+            icon={MessageSquareQuote}
+            label="blogs"
+            active={location === "reviews"}
+          />
         </Stack>
       </Stack>
       <Stack w="100%">

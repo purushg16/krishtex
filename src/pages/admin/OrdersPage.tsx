@@ -26,7 +26,7 @@ const OrdersPage = () => {
       </VStack>
       <Box
         w="100%"
-        maxH={{ base: "100%", md: 500 }}
+        maxH="100%"
         overflowY="scroll"
         my={4}
         borderTop="1px solid"

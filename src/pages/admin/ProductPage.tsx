@@ -1,5 +1,6 @@
-import { Button, SimpleGrid, Stack, VStack, Box } from "@chakra-ui/react";
+import { Button, Stack, VStack, Box } from "@chakra-ui/react";
 import { Name } from "../../utilities/Typography";
+import SkeletonGrid from "../../components/SkeletonGrid";
 
 const ProductPage = () => {
   return (
@@ -12,7 +13,7 @@ const ProductPage = () => {
       </VStack>
       <Box
         w="100%"
-        maxH={{ base: "100%", md: 500 }}
+        maxH="100%"
         overflowY="scroll"
         my={4}
         borderTop="1px solid"
@@ -20,16 +21,7 @@ const ProductPage = () => {
         pt={4}
         pb={28}
       >
-        <SimpleGrid columns={{ base: 2, md: 3 }} spacing={4}>
-          <Box w="100" aspectRatio="3/2" bg="secondary.50" />
-          <Box w="100" aspectRatio="3/2" bg="secondary.50" />
-          <Box w="100" aspectRatio="3/2" bg="secondary.50" />
-          <Box w="100" aspectRatio="3/2" bg="secondary.50" />
-          <Box w="100" aspectRatio="3/2" bg="secondary.50" />
-          <Box w="100" aspectRatio="3/2" bg="secondary.50" />
-          <Box w="100" aspectRatio="3/2" bg="secondary.50" />
-          <Box w="100" aspectRatio="3/2" bg="secondary.50" />
-        </SimpleGrid>
+        <SkeletonGrid />
       </Box>
     </Stack>
   );

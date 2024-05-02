@@ -4,6 +4,8 @@ import AdminLayout from "./layouts/AdminLayout";
 import ProductPage from "./pages/admin/ProductPage";
 import CategoriesPages from "./pages/admin/CategoriesPages";
 import OrdersPage from "./pages/admin/OrdersPage";
+import AddProductsPage from "./pages/admin/AddProductsPage";
+import AddOrEditLayout from "./layouts/AddOrEditLayout";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +17,15 @@ const router = createBrowserRouter([
     element: <AdminLayout />,
     errorElement: <></>,
     children: [
-      { index: true, path: "products", element: <ProductPage /> },
+      {
+        path: "products",
+        element: <AddOrEditLayout />,
+        children: [
+          { index: true, element: <ProductPage /> },
+          { path: "add", element: <AddProductsPage /> },
+          { path: "edit/:productId", element: <AddProductsPage /> },
+        ],
+      },
       { path: "categories", element: <CategoriesPages /> },
       { path: "orders", element: <OrdersPage /> },
       { path: "reviews", element: <OrdersPage /> },

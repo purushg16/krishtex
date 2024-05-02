@@ -1,6 +1,6 @@
 import { Button, Stack, VStack, Box } from "@chakra-ui/react";
 import { Name } from "../../utilities/Typography";
-import SkeletonGrid from "../../components/SkeletonGrid";
+import ProductsGrid from "../../components/ProductsGrid";
 
 const ProductPage = () => {
   return (
@@ -21,7 +21,8 @@ const ProductPage = () => {
         pt={4}
         pb={28}
       >
-        <SkeletonGrid />
+        {/* <SkeletonGrid /> */}
+        <ProductsGrid />
       </Box>
     </Stack>
   );

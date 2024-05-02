@@ -63,7 +63,7 @@ const AdminSideBar = () => {
           <SideBarButton
             icon={MessageSquareQuote}
             label="blogs"
-            active={location === "reviews"}
+            active={location === "blogs"}
           />
         </Stack>
       </Stack>

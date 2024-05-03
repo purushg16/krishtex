@@ -3,6 +3,7 @@ import { Factory, ShieldCheck, Trophy } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { RHeading, RText } from "../../utilities/Typography";
 import NavbarLinkStack from "./NavbarLinkStack";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const elementRef = useRef<HTMLDivElement>(null);
@@ -76,9 +77,16 @@ const Navbar = () => {
         zIndex={999}
       >
         <NavbarLinkStack />
-        <Button colorScheme="primary" order={1}>
-          Schedule a call
-        </Button>
+        <HStack>
+          <Link to="/register">
+            <Button colorScheme="secondary" order={1}>
+              Get Started
+            </Button>
+          </Link>
+          <Button colorScheme="primary" order={1}>
+            Schedule a call
+          </Button>
+        </HStack>
       </Flex>
     </VStack>
   );

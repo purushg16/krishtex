@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Outlet, createBrowserRouter } from "react-router-dom";
 import LandingPage from "./pages/user/LandingPage";
 import AdminLayout from "./layouts/AdminLayout";
 import ProductPage from "./pages/admin/ProductPage";
@@ -7,11 +7,19 @@ import OrdersPage from "./pages/admin/OrdersPage";
 import AddProductsPage from "./pages/admin/AddProductsPage";
 import AddOrEditLayout from "./layouts/AddOrEditLayout";
 import SingleOrderPage from "./pages/admin/SingleOrderPage";
+import LoginPage from "./pages/auth/LoginPage";
+import RegisterPage from "./pages/auth/RegisterPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LandingPage />,
+    element: <Outlet />,
+    errorElement: <></>,
+    children: [
+      { index: true, element: <LandingPage /> },
+      { path: "register", element: <RegisterPage /> },
+      { path: "login", element: <LoginPage /> },
+    ],
   },
   {
     path: "/admin",

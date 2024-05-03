@@ -7,10 +7,12 @@ interface Props {
   setNumber?: (value: number) => void;
   number?: boolean;
   smallLabel?: boolean;
+  password?: boolean;
   color?: "black" | "gray";
 }
 
 const LabelInput = ({
+  password,
   label,
   value,
   setText,
@@ -29,12 +31,13 @@ const LabelInput = ({
         {label}
       </FormLabel>
       <Input
+        minW={300}
         color="black"
         _placeholder={{ textTransform: "capitalize" }}
         placeholder={label}
         variant="outline"
         value={value}
-        type={number ? "number" : "text"}
+        type={number ? "number" : password ? "password" : "text"}
         onChange={(e) => {
           number
             ? setNumber && setNumber(parseInt(e.target.value || ""))

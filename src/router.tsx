@@ -9,6 +9,10 @@ import AddOrEditLayout from "./layouts/AddOrEditLayout";
 import SingleOrderPage from "./pages/admin/SingleOrderPage";
 import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
+import UserAccountPage from "./pages/user/UserAccountPage";
+import WishlistPage from "./pages/user/WishlistPage";
+import CartPage from "./pages/user/CartPage";
+import ProductsPage from "./pages/user/ProductsPage";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +23,10 @@ const router = createBrowserRouter([
       { index: true, element: <LandingPage /> },
       { path: "register", element: <RegisterPage /> },
       { path: "login", element: <LoginPage /> },
+      { path: "products", element: <ProductsPage /> },
+      { path: "account", element: <UserAccountPage /> },
+      { path: "wishlist", element: <WishlistPage /> },
+      { path: "cart", element: <CartPage /> },
     ],
   },
   {

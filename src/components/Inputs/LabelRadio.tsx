@@ -17,7 +17,12 @@ const LabelRadio = ({
 }: Props) => {
   return (
     <VStack gap={0} align="start">
-      <FormLabel fontSize="md" textTransform="capitalize" color={color}>
+      <FormLabel
+        fontSize="md"
+        textTransform="capitalize"
+        color={color}
+        fontWeight={700}
+      >
         {label}
       </FormLabel>
       <RadioGroup onChange={onSelect} value={value}>

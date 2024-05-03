@@ -1,4 +1,5 @@
 import {
+  Box,
   Divider,
   FormLabel,
   Highlight,
@@ -8,8 +9,13 @@ import {
 import { Label } from "../../../utilities/Typography";
 import Uploader from "../../Upload/Uploader";
 import ImagePreview from "./ImagePreview";
+import useImageStore from "../../../store/imageStore";
 
 const ImageUploader = () => {
+  const images = useImageStore((s) => s.images);
+  const setImages = useImageStore((s) => s.setImages);
+  const deleteImage = useImageStore((s) => s.deleteImage);
+
   return (
     <VStack align="start" w="100%" h="100%">
       <FormLabel size="md" color="black">
@@ -20,7 +26,9 @@ const ImageUploader = () => {
           Upload Product Images (max. 5 images)
         </Highlight>
       </FormLabel>
-      <Uploader />
+
+      <Uploader isDisabled={images.length === 5} callback={setImages} />
+
       <VStack
         align="start"
         p={4}
@@ -33,18 +41,28 @@ const ImageUploader = () => {
       >
         <Label text="Uploaded Images" />
         <Divider borderColor="gray.200" mb={4} />
-        <SimpleGrid
-          columns={2}
-          spacing={4}
-          w="100%"
-          maxH="100%"
-          overflowY="scroll"
-        >
-          <ImagePreview />
-          <ImagePreview />
-          <ImagePreview />
-          <ImagePreview />
-        </SimpleGrid>
+        {images.length > 0 ? (
+          <SimpleGrid
+            columns={2}
+            spacing={4}
+            w="100%"
+            maxH="100%"
+            overflowY="scroll"
+          >
+            {images.map((img) => (
+              <ImagePreview img={img} key={img.id} onDelete={deleteImage} />
+            ))}
+          </SimpleGrid>
+        ) : (
+          <Box w="100%" textAlign="center">
+            <Label
+              text="No images uploaded"
+              textTransform="uppercase"
+              small
+              color="gray.500"
+            />
+          </Box>
+        )}
       </VStack>
     </VStack>
   );

@@ -1,10 +1,17 @@
-import { useDropzone } from "react-dropzone";
+import { FileWithPath, useDropzone } from "react-dropzone";
 import { acceptStyle, focusedStyle, rejectStyle } from "./UploadStyle";
 import { useMemo } from "react";
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, useToast } from "@chakra-ui/react";
 import { Label } from "../../utilities/Typography";
 
-const Uploader = () => {
+interface Props {
+  isDisabled: boolean;
+  callback: (files: FileWithPath[]) => void;
+}
+
+const Uploader = ({ isDisabled, callback }: Props) => {
+  const toast = useToast();
+
   const {
     getRootProps,
     getInputProps,
@@ -17,19 +24,36 @@ const Uploader = () => {
     accept: {
       "image/*": [".jpeg", ".png"],
     },
+    onDropRejected: (rej) => {
+      toast({
+        title: rej[0].errors[0].message,
+        status: "error",
+        duration: 3000,
+        position: "top",
+      });
+    },
+
+    onDrop: async (acceptedFiles: FileWithPath[]) => {
+      if (acceptedFiles.length > 0 && !isDisabled) callback(acceptedFiles);
+    },
   });
 
   const style = useMemo(
     () => ({
-      ...(isFocused ? focusedStyle : {}),
-      ...(isDragAccept ? acceptStyle : {}),
-      ...(isDragReject ? rejectStyle : {}),
+      ...(isFocused && !isDisabled ? focusedStyle : {}),
+      ...(isDragAccept && !isDisabled ? acceptStyle : {}),
+      ...(isDragReject && !isDisabled ? rejectStyle : {}),
     }),
-    [isFocused, isDragAccept, isDragReject]
+    [isFocused, isDragAccept, isDragReject, isDisabled]
   );
 
   return (
-    <Box className="container" w="100%">
+    <Box
+      className="container"
+      w="100%"
+      opacity={isDisabled ? 0.5 : 1}
+      pointerEvents={isDisabled ? "none" : "all"}
+    >
       <Flex
         p={4}
         w="100%"
@@ -41,7 +65,7 @@ const Uploader = () => {
         borderColor="gray.200"
         {...getRootProps({ style: style as React.CSSProperties })}
       >
-        <input {...getInputProps()} />
+        <input {...getInputProps()} disabled={isDisabled} />
         {isDragAccept && <p>All files will be accepted</p>}
         {isDragReject && <p>Some files will be rejected</p>}
         {!isDragActive && <Label text="Tap or Drag and drop images here" />}

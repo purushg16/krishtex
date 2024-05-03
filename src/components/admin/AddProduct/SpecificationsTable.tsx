@@ -9,7 +9,7 @@ const SpecificationsTable = () => {
   return (
     <VStack gap={2} align="start" w="100%">
       <HStack justify="space-between" w="100%">
-        <FormLabel fontSize="md" color="black">
+        <FormLabel fontSize="md" color="black" fontWeight={700}>
           Specifications
         </FormLabel>
         <Button

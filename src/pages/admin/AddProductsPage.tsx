@@ -3,15 +3,19 @@ import AddProductDetailsHug from "../../components/admin/AddProduct/AddProductDe
 import ImageUploader from "../../components/admin/AddProduct/ImageUploader";
 import { Name } from "../../utilities/Typography";
 import AddProductSubmitButton from "../../components/admin/AddProduct/AddProductSubmitButton";
+import AddProductCancelButton from "../../components/admin/AddProduct/AddProductCancelButton";
 
 const AddProductsPage = () => {
   return (
-    <VStack w="100%">
+    <VStack w="100%" p={4}>
       <HStack justify="space-between" w="100%">
         <VStack align="start" w="100%">
           <Name text="Add New Product" color="black" />
         </VStack>
-        <AddProductSubmitButton />
+        <HStack gap={4}>
+          <AddProductCancelButton />
+          <AddProductSubmitButton />
+        </HStack>
       </HStack>
       <Divider mt={2} mb={8} />
 

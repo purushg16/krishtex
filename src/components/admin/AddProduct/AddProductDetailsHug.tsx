@@ -14,7 +14,7 @@ const AddProductDetailsHug = () => {
 
   return (
     <Flex gap={4} flexDir="column" mx="auto" w="100%">
-      <VStack align="start" gap={12} w="100%">
+      <VStack align="start" gap={4} w="100%">
         <LabelInput
           label="Product Name"
           value={name}

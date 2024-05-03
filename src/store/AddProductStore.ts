@@ -20,6 +20,7 @@ interface AddProductAction {
   addSpecifications: () => void;
   removeSpecifications: (id: string) => void;
   //   setImageLink: (imageLink: string | string[]) => void;
+  clearForm: () => void;
 }
 
 const useAddProductStore = create<AddProduct & AddProductAction>((set) => ({
@@ -57,6 +58,16 @@ const useAddProductStore = create<AddProduct & AddProductAction>((set) => ({
   settCategory: (category) => set({ category }),
 
   imageLink: [],
+
+  clearForm: () =>
+    set({
+      name: "",
+      productType: "",
+      price: 0,
+      specifications: [{ id: v4(), key: "Key", value: "Value" }],
+      category: "",
+      imageLink: [],
+    }),
 }));
 
 export default useAddProductStore;

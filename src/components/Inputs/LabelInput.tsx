@@ -21,7 +21,11 @@ const LabelInput = ({
 }: Props) => {
   return (
     <VStack align="start" gap={0} w="100%">
-      <FormLabel fontSize={smallLabel ? "xs" : "md"} color={color}>
+      <FormLabel
+        fontSize={smallLabel ? "xs" : "md"}
+        color={color}
+        fontWeight={700}
+      >
         {label}
       </FormLabel>
       <Input

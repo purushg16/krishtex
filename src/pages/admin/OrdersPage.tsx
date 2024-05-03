@@ -1,11 +1,9 @@
 import {
   Stack,
   Table,
-  TableCaption,
   TableContainer,
   Tbody,
   Td,
-  Tfoot,
   Th,
   Thead,
   Tr,
@@ -14,6 +12,17 @@ import {
   Tag,
 } from "@chakra-ui/react";
 import { Name } from "../../utilities/Typography";
+import orders from "../../data/orders";
+import currencyFormatter from "../../functions/currencyFormatter";
+
+const tableHeadings = [
+  "order id",
+  "customer",
+  "order status",
+  "payment status",
+  "dispatch status",
+  "amount",
+];
 
 const OrdersPage = () => {
   return (
@@ -36,88 +45,74 @@ const OrdersPage = () => {
       >
         <TableContainer>
           <Table>
-            <TableCaption>Imperial to metric conversion factors</TableCaption>
-            <Thead>
+            <Thead bg="gray.50">
               <Tr>
-                <Th> Order No </Th>
-                <Th> Customer </Th>
-                <Th> status </Th>
-                <Th isNumeric> Total </Th>
+                {tableHeadings.map((th) => (
+                  <Th key={th} isNumeric={th === "amount"}>
+                    {th}
+                  </Th>
+                ))}
               </Tr>
             </Thead>
             <Tbody>
-              <Tr>
-                <Td> 12345 </Td>
-                <Td> lorem impsum </Td>
-                <Td>
-                  <Tag colorScheme="green"> Delivered </Tag>
-                </Td>
-                <Td isNumeric>25.4</Td>
-              </Tr>
-              <Tr>
-                <Td> 12345 </Td>
-                <Td> lorem impsum </Td>
-                <Td>
-                  <Tag colorScheme="orange"> Not Delivered </Tag>
-                </Td>
-                <Td isNumeric>30.48</Td>
-              </Tr>
-              <Tr>
-                <Td> 12345 </Td>
-                <Td> lorem impsum </Td>
-                <Td>
-                  <Tag colorScheme="green"> Delivered </Tag>
-                </Td>
-                <Td isNumeric>25.4</Td>
-              </Tr>
-              <Tr>
-                <Td> 12345 </Td>
-                <Td> lorem impsum </Td>
-                <Td>
-                  <Tag colorScheme="orange"> Not Delivered </Tag>
-                </Td>
-                <Td isNumeric>30.48</Td>
-              </Tr>
-              <Tr>
-                <Td> 12345 </Td>
-                <Td> lorem impsum </Td>
-                <Td>
-                  <Tag colorScheme="green"> Delivered </Tag>
-                </Td>
-                <Td isNumeric>25.4</Td>
-              </Tr>
-              <Tr>
-                <Td> 12345 </Td>
-                <Td> lorem impsum </Td>
-                <Td>
-                  <Tag colorScheme="orange"> Not Delivered </Tag>
-                </Td>
-                <Td isNumeric>30.48</Td>
-              </Tr>
-              <Tr>
-                <Td> 12345 </Td>
-                <Td> lorem impsum </Td>
-                <Td>
-                  <Tag colorScheme="green"> Delivered </Tag>
-                </Td>
-                <Td isNumeric>25.4</Td>
-              </Tr>
-              <Tr>
-                <Td> 12345 </Td>
-                <Td> lorem impsum </Td>
-                <Td>
-                  <Tag colorScheme="orange"> Not Delivered </Tag>
-                </Td>
-                <Td isNumeric>30.48</Td>
-              </Tr>
+              {orders.map((order) => (
+                <Tr key={order.orderId}>
+                  <Td> {order.orderId} </Td>
+                  <Td> {order.customerId} </Td>
+                  <Td>
+                    <Tag
+                      colorScheme={
+                        order.orderStatus === "completed"
+                          ? "green"
+                          : order.orderStatus === "confirmed"
+                          ? "blue"
+                          : order.orderStatus === "pending"
+                          ? "yellow"
+                          : order.orderStatus === "cancelled"
+                          ? "red"
+                          : "gray"
+                      }
+                      textTransform="capitalize"
+                    >
+                      {order.orderStatus}
+                    </Tag>
+                  </Td>
+                  <Td>
+                    <Tag
+                      colorScheme={
+                        order.paymentStatus === "success"
+                          ? "green"
+                          : order.paymentStatus === "created"
+                          ? "blue"
+                          : order.paymentStatus === "refunded"
+                          ? "teal"
+                          : order.paymentStatus === "partial-refund"
+                          ? "yellow"
+                          : order.paymentStatus === "failed"
+                          ? "red"
+                          : "gray"
+                      }
+                      textTransform="capitalize"
+                    >
+                      {order.paymentStatus}
+                    </Tag>
+                  </Td>
+                  <Td>
+                    <Tag
+                      colorScheme={
+                        order.shippingStatus === "shipped" ? "green" : "yellow"
+                      }
+                      textTransform="capitalize"
+                    >
+                      {order.shippingStatus}
+                    </Tag>
+                  </Td>
+                  <Td isNumeric>
+                    {currencyFormatter(parseFloat(order.totalBill.toFixed(2)))}
+                  </Td>
+                </Tr>
+              ))}
             </Tbody>
-            <Tfoot>
-              <Tr>
-                <Th>To convert</Th>
-                <Th>into</Th>
-                <Th isNumeric>multiply by</Th>
-              </Tr>
-            </Tfoot>
           </Table>
         </TableContainer>
       </Box>

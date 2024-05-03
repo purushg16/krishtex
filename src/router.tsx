@@ -6,6 +6,7 @@ import CategoriesPages from "./pages/admin/CategoriesPages";
 import OrdersPage from "./pages/admin/OrdersPage";
 import AddProductsPage from "./pages/admin/AddProductsPage";
 import AddOrEditLayout from "./layouts/AddOrEditLayout";
+import SingleOrderPage from "./pages/admin/SingleOrderPage";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
       },
       { path: "categories", element: <CategoriesPages /> },
       { path: "orders", element: <OrdersPage /> },
+      { path: "orders/:orderId", element: <SingleOrderPage /> },
       { path: "reviews", element: <OrdersPage /> },
       { path: "blogs", element: <OrdersPage /> },
     ],

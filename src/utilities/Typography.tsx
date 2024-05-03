@@ -4,7 +4,7 @@ interface Props {
   text: string;
   big?: boolean;
   small?: boolean;
-  weight?: "normal" | "bold" | "bolder";
+  weight?: "normal" | "semibold" | "bold" | "bolder";
   color?: "white" | "gray" | string;
   nowrap?: boolean;
   align?: AlignSetting;
@@ -57,10 +57,16 @@ const Paragraph = ({ text, color, align = "left" }: Props) => {
   );
 };
 
-const Label = ({ text, color, textTransform, small }: Props) => (
+const Label = ({
+  text,
+  color,
+  textTransform,
+  small,
+  weight = "semibold",
+}: Props) => (
   <Text
     fontSize={small ? "12px" : "16px"}
-    fontWeight={"semibold"}
+    fontWeight={weight}
     color={color}
     whiteSpace={"nowrap"}
     textTransform={textTransform}

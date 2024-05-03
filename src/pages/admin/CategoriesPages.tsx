@@ -1,6 +1,7 @@
-import { Box, Button, Stack, VStack } from "@chakra-ui/react";
+import { Box, Button, SimpleGrid, Stack, VStack } from "@chakra-ui/react";
+import CategoryCard from "../../components/admin/CategoryCard";
+import categories from "../../data/categories";
 import { Name } from "../../utilities/Typography";
-import SkeletonGrid from "../../components/SkeletonGrid";
 
 const CategoriesPages = () => {
   return (
@@ -21,7 +22,12 @@ const CategoriesPages = () => {
         pt={4}
         pb={28}
       >
-        <SkeletonGrid />
+        {/* <SkeletonGrid /> */}
+        <SimpleGrid columns={{ base: 2, md: 3, lg: 4 }} spacing={4}>
+          {categories.map((category, i) => (
+            <CategoryCard category={category} key={i} />
+          ))}
+        </SimpleGrid>
       </Box>
     </Stack>
   );

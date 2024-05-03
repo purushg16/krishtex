@@ -16,6 +16,8 @@ const SideBarButton = ({
     <Link to={label} style={{ width: "100%" }}>
       <HStack
         bg={active ? "primary.50" : "none"}
+        border={active ? "1px solid" : "none"}
+        borderColor="primary.200"
         p={2}
         px={4}
         borderRadius={10}

@@ -14,6 +14,8 @@ import {
 import { Name } from "../../utilities/Typography";
 import orders from "../../data/orders";
 import currencyFormatter from "../../functions/currencyFormatter";
+import { Link } from "react-router-dom";
+import ColorSchemeDetector from "../../functions/colorSchemeDetector";
 
 const tableHeadings = [
   "order id",
@@ -56,22 +58,18 @@ const OrdersPage = () => {
             </Thead>
             <Tbody>
               {orders.map((order) => (
-                <Tr key={order.orderId}>
-                  <Td> {order.orderId} </Td>
+                <Tr
+                  key={order.orderId}
+                  _hover={{ bg: "yellow.50" }}
+                  transition="all 0.7s"
+                >
+                  <Td color="blue.400">
+                    <Link to={order.orderId}>{order.orderId}</Link>
+                  </Td>
                   <Td> {order.customerId} </Td>
                   <Td>
                     <Tag
-                      colorScheme={
-                        order.orderStatus === "completed"
-                          ? "green"
-                          : order.orderStatus === "confirmed"
-                          ? "blue"
-                          : order.orderStatus === "pending"
-                          ? "yellow"
-                          : order.orderStatus === "cancelled"
-                          ? "red"
-                          : "gray"
-                      }
+                      colorScheme={ColorSchemeDetector(order.orderStatus)}
                       textTransform="capitalize"
                     >
                       {order.orderStatus}
@@ -79,19 +77,7 @@ const OrdersPage = () => {
                   </Td>
                   <Td>
                     <Tag
-                      colorScheme={
-                        order.paymentStatus === "success"
-                          ? "green"
-                          : order.paymentStatus === "created"
-                          ? "blue"
-                          : order.paymentStatus === "refunded"
-                          ? "teal"
-                          : order.paymentStatus === "partial-refund"
-                          ? "yellow"
-                          : order.paymentStatus === "failed"
-                          ? "red"
-                          : "gray"
-                      }
+                      colorScheme={ColorSchemeDetector(order.paymentStatus)}
                       textTransform="capitalize"
                     >
                       {order.paymentStatus}

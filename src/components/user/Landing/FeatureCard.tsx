@@ -13,9 +13,9 @@ const FeatureCard = ({
 }) => {
   return (
     <VStack align="start" w="100%" gap={2}>
-      <Icon as={icon} boxSize={6} />
-      <Label text={title} />
-      <RText text={text} color="gray" weight="normal" />
+      <Icon as={icon} boxSize={6} color="white" />
+      <Label text={title} color="white" />
+      <RText text={text} color="secondary.200" weight="normal" />
     </VStack>
   );
 };

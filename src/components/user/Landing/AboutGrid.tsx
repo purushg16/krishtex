@@ -11,14 +11,17 @@ import {
 const AboutGrid = () => {
   return (
     <SimpleGrid
+      bg="secondary.500"
       w="100%"
       columns={{ base: 1, md: 1, lg: 2 }}
       spacing={8}
+      py={20}
       px={{ base: 4, md: 8, lg: 12 }}
     >
       <VStack w="100%" gap={4} align="start">
-        <Name text="What we are excellent in providing!" />
+        <Name text="What we are excellent in providing!" color="white" />
         <RText
+          color="secondary.100"
           small
           text={`In KRISHTEX, we design 2D and 3D mould flow analysis and manufacture 
                   Runner moulds, Multi-cavity moulds, High volume moulds, Inserting 

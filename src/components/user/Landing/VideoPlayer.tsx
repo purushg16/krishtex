@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { Divider, Flex, VStack } from "@chakra-ui/react";
+import { Button, Divider, Flex, VStack } from "@chakra-ui/react";
 import video from "../../../data/vid.mp4";
 import { Name, RHeading } from "../../../utilities/Typography";
+import { Link } from "react-router-dom";
 
 const VideoPlayer = () => {
   const [preloaded, setPreloaded] = useState(false);
@@ -43,6 +44,7 @@ const VideoPlayer = () => {
 
   return (
     <Flex
+      w="100%"
       flexDir="column"
       h={550}
       mb={8}
@@ -52,9 +54,25 @@ const VideoPlayer = () => {
       overflow="hidden"
     >
       <VStack>
-        <RHeading big text="Krishtex Enterprises" color="white" />
+        <RHeading
+          big
+          text="Krishtex Enterprises"
+          color="white"
+          align="center"
+        />
         <Name text="Enter the world of quality" color="white" />
         <Divider my={4} />
+        <Link to="/register">
+          <Button
+            colorScheme="primary"
+            textTransform="uppercase"
+            size="sm"
+            px={8}
+            py={6}
+          >
+            Get Started Now
+          </Button>
+        </Link>
       </VStack>
 
       <video

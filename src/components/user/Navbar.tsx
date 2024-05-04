@@ -96,18 +96,17 @@ const Navbar = () => {
         <Show above="md">
           <NavbarLinkStack />
         </Show>
-        <HStack>
-          <Link to="/register">
-            <Button colorScheme="secondary" order={1}>
-              Get Started
-            </Button>
-          </Link>
+        <HStack maxW="100%" flexWrap="wrap">
           <Link to="/register">
             <Button colorScheme="green" order={1} leftIcon={<BsWhatsapp />}>
               Whatsapp
             </Button>
           </Link>
-          <Button colorScheme="primary" order={1} leftIcon={<IoCallOutline />}>
+          <Button
+            colorScheme="secondary"
+            order={1}
+            leftIcon={<IoCallOutline />}
+          >
             Schedule a call
           </Button>
         </HStack>

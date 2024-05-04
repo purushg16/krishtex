@@ -1,6 +1,12 @@
-import { Divider, HStack, SimpleGrid, VStack, Box } from "@chakra-ui/react";
+import { Divider, SimpleGrid, VStack, Box } from "@chakra-ui/react";
 import { Name, RText } from "../../../utilities/Typography";
 import FeatureCard from "./FeatureCard";
+import {
+  BadgeCheck,
+  HandshakeIcon,
+  SplineIcon,
+  TrendingUp,
+} from "lucide-react";
 
 const AboutGrid = () => {
   return (
@@ -11,18 +17,45 @@ const AboutGrid = () => {
       px={{ base: 4, md: 8, lg: 12 }}
     >
       <VStack w="100%" gap={4} align="start">
-        <Name text="Benefits you get when you use our products!" />
+        <Name text="What we are excellent in providing!" />
         <RText
           small
-          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore omnis quasi, neque illum numquam minus perspiciatis culpa, doloribus tenetur doloremque aliquam fuga nostrum reiciendis mollitia, nam debitis quis nisi est!"
+          text={`In KRISHTEX, we design 2D and 3D mould flow analysis and manufacture 
+                  Runner moulds, Multi-cavity moulds, High volume moulds, Inserting 
+                  moulds, etc., We have a dynamic workforce of 50 employees and our 
+                  professionals have more than 20 years of hands on experience in the industry`}
         />
         <Divider my={4} />
-        <HStack w="100%" gap={8}>
-          <FeatureCard />
-          <FeatureCard />
-        </HStack>
+        <SimpleGrid columns={2} spacing={8}>
+          <FeatureCard
+            icon={TrendingUp}
+            title="High Quality"
+            text="Provide high quality, affordable injection moulding services."
+          />
+          <FeatureCard
+            icon={BadgeCheck}
+            title="Extremely Truthful"
+            text="Create and cultivate long-term relationship with clients."
+          />
+          <FeatureCard
+            icon={SplineIcon}
+            title="Flexible"
+            text="Respond immediately to the changing needs of our clients."
+          />
+          <FeatureCard
+            icon={HandshakeIcon}
+            title="Customer Friendly"
+            text="Achieve complete customer satisfaction & Improve our services continuously according to that."
+          />
+        </SimpleGrid>
       </VStack>
-      <Box w="100%" minH={280} h="100%" bg="gray.100" />
+      <Box
+        w="100%"
+        minH={280}
+        h="100%"
+        bg="gray.100"
+        display={{ base: "none", md: "none", lg: "block" }}
+      />
     </SimpleGrid>
   );
 };

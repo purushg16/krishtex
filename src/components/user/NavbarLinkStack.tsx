@@ -6,10 +6,10 @@ import MobileMenu from "./MobileMenu";
 const NavbarLinkStack = () => {
   return (
     <>
-      <Show below="md">
+      <Show below="lg">
         <MobileMenu />
       </Show>
-      <Show above="md">
+      <Show above="lg">
         <HStack gap={8}>
           <Link to="">
             <Label text="Home" textTransform="uppercase" />

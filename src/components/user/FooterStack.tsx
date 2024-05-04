@@ -54,19 +54,23 @@ const FooterStack = () => {
           <Name small weight="bold" text="Contact Us" />
           <Box my={2} />
 
-          <Button size="xs" variant="text" leftIcon={<Icon as={Phone} />} p={0}>
-            +91 998877665544
-          </Button>
-          <Button size="xs" variant="text" leftIcon={<Icon as={Mail} />} p={0}>
-            something@gmail.com
-          </Button>
           <Button
+            textAlign="left"
+            textOverflow="ellipsis"
+            whiteSpace="balance"
             size="xs"
             variant="text"
             leftIcon={<Icon as={MapPin} />}
             p={0}
+            mb={2}
           >
-            Ganapathi, Coimbatore, Tamil Nadu
+            S.F no :255, Naalu Kavalai Thottam, Maniyakarampalayam,
+          </Button>
+          <Button size="xs" variant="text" leftIcon={<Icon as={Phone} />} p={0}>
+            (+91) 73733 11722, 86670 96788
+          </Button>
+          <Button size="xs" variant="text" leftIcon={<Icon as={Mail} />} p={0}>
+            something@gmail.com
           </Button>
         </VStack>
       </SimpleGrid>

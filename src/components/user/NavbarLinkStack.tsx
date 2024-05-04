@@ -8,7 +8,7 @@ const NavbarLinkStack = () => {
       <Link to="">
         <Label text="Home" textTransform="uppercase" small />
       </Link>
-      <Link to="">
+      <Link to="/about">
         <Label text="About Us" textTransform="uppercase" small />
       </Link>
       <Link to="/products">
@@ -17,7 +17,7 @@ const NavbarLinkStack = () => {
       <Link to="">
         <Label text="Media" textTransform="uppercase" small />
       </Link>
-      <Link to="">
+      <Link to="/contact">
         <Label text="Contact" textTransform="uppercase" small />
       </Link>
     </HStack>

@@ -1,4 +1,4 @@
-import { HStack, Icon, VStack } from "@chakra-ui/react";
+import { Divider, HStack, Icon, VStack } from "@chakra-ui/react";
 import { BsDot } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import PolicyLayout from "../../../layouts/PolicyLayout";
@@ -8,6 +8,7 @@ const AboutPage = () => {
   return (
     <PolicyLayout>
       <RHeading text="About Us" />
+      <Divider border="2px" borderColor="primary.400" mb={8} />
       <RText
         text={`Founded in 2005, KRISHTEX, set out itself to be a leading automative 
 mould company in Injection mould design, manufacturing, plastic moulding 
@@ -33,7 +34,7 @@ innovative and cost-effective services.`}
           </Link>
 
           <Icon as={BsDot} />
-          <Link to="/contact">
+          <Link to="/TermsAndConditions">
             <Label text="Terms & Conditions" />
           </Link>
         </HStack>

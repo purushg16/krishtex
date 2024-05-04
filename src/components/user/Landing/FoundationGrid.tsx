@@ -47,7 +47,7 @@ const FoundationGrid = () => {
                     innovative and cost-effective services.`}
           />
           <Link to="/about" style={{ alignSelf: "end" }}>
-            <Button colorScheme="primary" mt={12}>
+            <Button colorScheme="secondary" mt={12}>
               Know More
             </Button>
           </Link>

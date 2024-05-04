@@ -8,6 +8,7 @@ interface Props {
   color?: "white" | "gray" | string;
   nowrap?: boolean;
   align?: AlignSetting;
+  border?: boolean;
   textTransform?:
     | "capitalize"
     | "full-size-kana"
@@ -36,7 +37,7 @@ const Title = ({ text, big = false, small, color, weight, align }: Props) => {
   );
 };
 
-const Name = ({ text, color, textTransform, small }: Props) => {
+const Name = ({ text, color, textTransform, small, border }: Props) => {
   const fontSize = small
     ? { base: "16px", md: "20px" }
     : { base: "28px", md: "36px" };
@@ -47,16 +48,48 @@ const Name = ({ text, color, textTransform, small }: Props) => {
       fontWeight="semibold"
       color={color}
       textTransform={textTransform}
+      position="relative"
     >
       {text}
+      {border && (
+        <span
+          style={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            top: 25,
+            width: "100%",
+            height: "3px",
+            backgroundColor: "darkslateblue",
+          }}
+        />
+      )}
     </Heading>
   );
 };
 
-const Paragraph = ({ text, color, align = "left" }: Props) => {
+const Paragraph = ({ text, color, align = "left", border }: Props) => {
   return (
-    <Text textAlign={align} fontSize="14px" color={color} fontWeight={500}>
+    <Text
+      textAlign={align}
+      fontSize="16px"
+      color={color}
+      fontWeight={500}
+      pos="relative"
+    >
       {text}
+      {border && (
+        <span
+          style={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            width: "100%",
+            height: "3px",
+            backgroundColor: "black",
+          }}
+        />
+      )}
     </Text>
   );
 };

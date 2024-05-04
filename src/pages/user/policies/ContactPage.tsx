@@ -1,4 +1,4 @@
-import { HStack, Icon, VStack } from "@chakra-ui/react";
+import { Divider, HStack, Icon, VStack } from "@chakra-ui/react";
 import PolicyLayout from "../../../layouts/PolicyLayout";
 import { Label, RHeading } from "../../../utilities/Typography";
 import { Mail, MapPin, PhoneCall } from "lucide-react";
@@ -7,6 +7,7 @@ const ContactPage = () => {
   return (
     <PolicyLayout>
       <RHeading text="Contact Us" />
+      <Divider border="2px" borderColor="primary.400" mb={8} />
       <VStack align="start" gap={8} mt={4}>
         <HStack gap={4}>
           <Icon as={MapPin} boxSize={6}></Icon>

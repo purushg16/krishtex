@@ -1,3 +1,4 @@
+import { Divider } from "@chakra-ui/react";
 import PolicyLayout from "../../../layouts/PolicyLayout";
 import { RHeading, RText } from "../../../utilities/Typography";
 
@@ -5,6 +6,7 @@ const ShippingAndDeliveryPage = () => {
   return (
     <PolicyLayout>
       <RHeading text="Shipping & Delivery Policies" />
+      <Divider border="2px" borderColor="primary.400" mb={8} />
       <RText
         text={`For International buyers, orders are shipped and delivered through registered 
                         international courier companies and/or International speed post only. 

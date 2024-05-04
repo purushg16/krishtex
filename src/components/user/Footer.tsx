@@ -19,7 +19,7 @@ const Footer = () => {
       px={{ base: 4, md: 8, lg: 12 }}
       py={20}
       mt={32}
-      bg="primary.600"
+      bg="primary.300"
       color="white"
     >
       <FooterStack />

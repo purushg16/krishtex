@@ -1,3 +1,4 @@
+import { Divider } from "@chakra-ui/react";
 import PolicyLayout from "../../../layouts/PolicyLayout";
 import { RHeading, RText } from "../../../utilities/Typography";
 
@@ -5,6 +6,8 @@ const TermsAndConditionsPage = () => {
   return (
     <PolicyLayout>
       <RHeading text="Terms & Conditions Page" />
+      <Divider border="2px" borderColor="primary.400" mb={8} />
+
       <RText
         text={`For the purpose of these Terms and Conditions, The term "we", "us", "our" used anywhere on this page shall mean KRISHTEX, whose registered/operational office is s.f.no : 255, naalu kaal thottam, maniyakaranpalayam, ganapathy Coimbatore TAMIL NADU 641006 . "you", “your”, "user", “visitor” shall mean any natural or legal person who is visiting our website and/or agreed to purchase from us.`}
       />

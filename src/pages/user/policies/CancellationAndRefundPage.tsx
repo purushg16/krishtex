@@ -1,3 +1,4 @@
+import { Divider } from "@chakra-ui/react";
 import PolicyLayout from "../../../layouts/PolicyLayout";
 import { RHeading, RText } from "../../../utilities/Typography";
 
@@ -5,6 +6,7 @@ const CancellationAndRefundPage = () => {
   return (
     <PolicyLayout>
       <RHeading text="Cancellation & Refund Policy" />
+      <Divider border="2px" borderColor="primary.400" mb={8} />
       <RText
         text={`KRISHTEX believes in helping its customers as far as possible, and has therefore a liberal cancellation policy. Under this policy:`}
       />

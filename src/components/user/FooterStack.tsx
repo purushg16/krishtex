@@ -31,7 +31,13 @@ const FooterStack = () => {
         spacingY={16}
       >
         <VStack align="start">
-          <Name small weight="bold" text="Useful Links" />
+          <Name
+            color="darkslateblue"
+            small
+            weight="bold"
+            text="Useful Links"
+            border
+          />
           <Box my={2} />
 
           <Link to="about">
@@ -51,7 +57,13 @@ const FooterStack = () => {
           </Link>
         </VStack>
         <VStack align="start">
-          <Name small weight="bold" text="Our Products" />
+          <Name
+            color="darkslateblue"
+            small
+            weight="bold"
+            text="Our Products"
+            border
+          />
           <Box my={2} />
           <RText small text="Single Phase Borewell Compressor Pumpsets" />
           <RText small text="Single Phase Centrifugal Jet Pumpsets" />
@@ -63,7 +75,13 @@ const FooterStack = () => {
           />
         </VStack>
         <VStack align="start">
-          <Name small weight="bold" text="Contact Us" />
+          <Name
+            color="darkslateblue"
+            small
+            weight="bold"
+            text="Contact Us"
+            border
+          />
           <Box my={2} />
 
           <Button

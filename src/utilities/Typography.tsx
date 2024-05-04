@@ -19,10 +19,10 @@ interface Props {
 
 const Title = ({ text, big = false, small, color, weight }: Props) => {
   const fontSize = big
-    ? { base: "32px", md: "52px" }
+    ? { base: "42px", md: "64px" }
     : small
-    ? { base: "32px", md: "42px" }
-    : { base: "32px", md: "48px" };
+    ? { base: "36px", md: "42px" }
+    : { base: "36px", md: "48px" };
 
   return (
     <Heading fontSize={fontSize} color={color} fontWeight={weight}>
@@ -31,10 +31,14 @@ const Title = ({ text, big = false, small, color, weight }: Props) => {
   );
 };
 
-const Name = ({ text, color, textTransform }: Props) => {
+const Name = ({ text, color, textTransform, small }: Props) => {
+  const fontSize = small
+    ? { base: "16px", md: "20px" }
+    : { base: "20px", md: "28px" };
+
   return (
     <Heading
-      fontSize={{ base: "20px", md: "28px" }}
+      fontSize={fontSize}
       fontWeight="semibold"
       color={color}
       textTransform={textTransform}
@@ -48,7 +52,7 @@ const Paragraph = ({ text, color, align = "left" }: Props) => {
   return (
     <Text
       textAlign={align}
-      fontSize={{ base: "12px", md: "16px" }}
+      fontSize={{ base: "14px", md: "16px" }}
       color={color}
       fontWeight={400}
     >

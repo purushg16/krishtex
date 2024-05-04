@@ -60,12 +60,7 @@ const MobileMenu = () => {
               <Link to="">
                 <Label text="Products" textTransform="uppercase" />
               </Link>
-              <Link to="">
-                <Label text="Certificate" textTransform="uppercase" />
-              </Link>
-              <Link to="">
-                <Label text="Brand" textTransform="uppercase" />
-              </Link>
+
               <Link to="">
                 <Label text="Media" textTransform="uppercase" />
               </Link>

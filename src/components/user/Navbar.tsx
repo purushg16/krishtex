@@ -1,9 +1,21 @@
-import { Button, Flex, HStack, Icon, Show, VStack } from "@chakra-ui/react";
-import { Factory, ShieldCheck, Trophy } from "lucide-react";
+import {
+  Box,
+  Button,
+  Flex,
+  HStack,
+  Icon,
+  Image,
+  Show,
+  VStack,
+} from "@chakra-ui/react";
+import { ShieldCheck, Trophy } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { RHeading, RText } from "../../utilities/Typography";
+import { Name, RText } from "../../utilities/Typography";
 import NavbarLinkStack from "./NavbarLinkStack";
 import { Link } from "react-router-dom";
+import { BsWhatsapp } from "react-icons/bs";
+import { IoCallOutline } from "react-icons/io5";
+import MobileMenu from "./MobileMenu";
 
 const Navbar = () => {
   const elementRef = useRef<HTMLDivElement>(null);
@@ -28,33 +40,38 @@ const Navbar = () => {
   return (
     <VStack w="100%" align="start" gap={0}>
       <Flex
+        pos="relative"
         w="100%"
         justify="space-between"
         py={4}
         px={{ base: 4, md: 8, lg: 12 }}
       >
-        <VStack align="start">
-          <HStack>
-            <Icon as={Factory} boxSize={12} />
-            <VStack align="start" gap={0}>
-              <RHeading small text="Krishtex" />
-              <RHeading small text="Enterprises" />
-            </VStack>
-          </HStack>
-        </VStack>
+        <HStack>
+          <Image
+            w={{ base: 120, md: 140 }}
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLKs9vN3B7883zkx8sHOrqHI8bwhdfHMi4pE99hthUZPfvMRDj08UpaBPOs5TmF3AmNXA&usqp=CAU"
+            alt=""
+          />
+          <Show below="md">
+            <Box pos="absolute" right={2}>
+              <MobileMenu />
+            </Box>
+          </Show>
+        </HStack>
+
         <Show above="md">
           <HStack gap={8}>
             <HStack>
-              <Icon as={Trophy} boxSize={12} />
+              <Icon as={Trophy} boxSize={8} />
               <VStack align="start" gap={0}>
-                <RText big weight="bolder" text="The Best Industrial" />
+                <Name small weight="bolder" text="The Best Industrial" />
                 <RText small text="Solution Provider" />
               </VStack>
             </HStack>
             <HStack>
-              <Icon as={ShieldCheck} boxSize={12} />
+              <Icon as={ShieldCheck} boxSize={8} />
               <VStack align="start" gap={0}>
-                <RText big weight="bolder" text="Certified Company" />
+                <Name small weight="bolder" text="Certified Company" />
                 <RText small text="ISO 9001-2015" />
               </VStack>
             </HStack>
@@ -76,14 +93,21 @@ const Navbar = () => {
         bg="white"
         zIndex={999}
       >
-        <NavbarLinkStack />
+        <Show above="md">
+          <NavbarLinkStack />
+        </Show>
         <HStack>
           <Link to="/register">
             <Button colorScheme="secondary" order={1}>
               Get Started
             </Button>
           </Link>
-          <Button colorScheme="primary" order={1}>
+          <Link to="/register">
+            <Button colorScheme="green" order={1} leftIcon={<BsWhatsapp />}>
+              Whatsapp
+            </Button>
+          </Link>
+          <Button colorScheme="primary" order={1} leftIcon={<IoCallOutline />}>
             Schedule a call
           </Button>
         </HStack>

@@ -5,8 +5,6 @@ import VideoPlayer from "./VideoPlayer";
 const WelcomeBanner = () => {
   return (
     <VStack align="start" gap={0}>
-      {/* <RText text="Welcome to Krishtex" color="gray" />
-      <RHeading text="Krishtex Are Best Of The Rest In The Field" /> */}
       <Box w="100%">
         <VideoPlayer />
       </Box>

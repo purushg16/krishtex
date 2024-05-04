@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { Flex } from "@chakra-ui/react";
+import { Divider, Flex, VStack } from "@chakra-ui/react";
 import video from "../../../data/vid.mp4";
+import { Name, RHeading } from "../../../utilities/Typography";
 
 const VideoPlayer = () => {
   const [preloaded, setPreloaded] = useState(false);
@@ -41,13 +42,21 @@ const VideoPlayer = () => {
   }, [preloaded]);
 
   return (
-    <Flex flexDir="column" h={550} mb={8} pos="relative" overflow="hidden">
-      {/* <RText text="Welcome to Krishtex" />
-      <RHeading
-        color="red"
-        small
-        text="Krishtex Are Best Of The Rest In The Field"
-      /> */}
+    <Flex
+      flexDir="column"
+      h={550}
+      mb={8}
+      pos="relative"
+      align="center"
+      justify="center"
+      overflow="hidden"
+    >
+      <VStack>
+        <RHeading big text="Krishtex Enterprises" color="white" />
+        <Name text="Enter the world of quality" color="white" />
+        <Divider my={4} />
+      </VStack>
+
       <video
         id="background-video"
         autoPlay
@@ -66,6 +75,20 @@ const VideoPlayer = () => {
       >
         <source src={video} type="video/mp4" />
       </video>
+
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          background:
+            "radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 100%)",
+          pointerEvents: "none", // Ensure that clicks pass through the overlay
+          zIndex: -1,
+        }}
+      />
     </Flex>
   );
 };

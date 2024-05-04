@@ -1,6 +1,7 @@
 import { Box, Button, Flex, Icon, SimpleGrid, VStack } from "@chakra-ui/react";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Name, RText } from "../../utilities/Typography";
+import { Link } from "react-router-dom";
 
 const FooterStack = () => {
   return (
@@ -33,10 +34,21 @@ const FooterStack = () => {
           <Name small weight="bold" text="Useful Links" />
           <Box my={2} />
 
-          <RText small text="About" />
-          <RText small text="Certificate" />
-          <RText small text="Contact us" />
-          <RText small text="Terms" />
+          <Link to="about">
+            <RText text="About Us" />
+          </Link>
+          <Link to="contact">
+            <RText text="Contact us" />
+          </Link>
+          <Link to="TermsAndConditions">
+            <RText text="Terms & Conditions" />
+          </Link>
+          <Link to="CancellationAndRefundPolicy">
+            <RText text="Cancellation and Refund" />
+          </Link>
+          <Link to="ShippingAndDeliveryPolicy">
+            <RText text="Shipping & Delivery policy" />
+          </Link>
         </VStack>
         <VStack align="start">
           <Name small weight="bold" text="Our Products" />

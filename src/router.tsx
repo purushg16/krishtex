@@ -14,6 +14,11 @@ import WishlistPage from "./pages/user/WishlistPage";
 import CartPage from "./pages/user/CartPage";
 import ProductsPage from "./pages/user/ProductsPage";
 import UserLayout from "./layouts/UserLayout";
+import ShippingAndDeliveryPage from "./pages/user/policies/ShippingAndDeliveryPage";
+import CancellationAndRefundPage from "./pages/user/policies/CancellationAndRefundPage";
+import TermsAndConditionsPage from "./pages/user/policies/TermsAndConditionsPage";
+import ContactPage from "./pages/user/policies/ContactPage";
+import AboutPage from "./pages/user/policies/AboutPage";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +33,17 @@ const router = createBrowserRouter([
       { path: "account", element: <UserAccountPage /> },
       { path: "wishlist", element: <WishlistPage /> },
       { path: "cart", element: <CartPage /> },
+      { path: "about", element: <AboutPage /> },
+      { path: "contact", element: <ContactPage /> },
+      { path: "TermsAndConditions", element: <TermsAndConditionsPage /> },
+      {
+        path: "CancellationAndRefundPolicy",
+        element: <CancellationAndRefundPage />,
+      },
+      {
+        path: "ShippingAndDeliveryPolicy",
+        element: <ShippingAndDeliveryPage />,
+      },
     ],
   },
   {

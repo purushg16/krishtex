@@ -17,7 +17,7 @@ const NavbarLinkStack = () => {
           <Link to="">
             <Label text="About Us" textTransform="uppercase" />
           </Link>
-          <Link to="">
+          <Link to="/products">
             <Label text="Products" textTransform="uppercase" />
           </Link>
           <Link to="">

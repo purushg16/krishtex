@@ -1,4 +1,4 @@
-import { Outlet, createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import LandingPage from "./pages/user/LandingPage";
 import AdminLayout from "./layouts/AdminLayout";
 import ProductPage from "./pages/admin/ProductPage";
@@ -13,11 +13,12 @@ import UserAccountPage from "./pages/user/UserAccountPage";
 import WishlistPage from "./pages/user/WishlistPage";
 import CartPage from "./pages/user/CartPage";
 import ProductsPage from "./pages/user/ProductsPage";
+import UserLayout from "./layouts/UserLayout";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Outlet />,
+    element: <UserLayout />,
     errorElement: <></>,
     children: [
       { index: true, element: <LandingPage /> },

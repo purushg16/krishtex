@@ -1,5 +1,3 @@
-import { Flex, VStack } from "@chakra-ui/react";
-import Navbar from "../../components/user/Navbar";
 import WelcomeBanner from "../../components/user/Landing/WelcomeBanner";
 import AboutGrid from "../../components/user/Landing/AboutGrid";
 import SectionsGrid from "../../components/user/Landing/SectionsGrid";
@@ -8,17 +6,13 @@ import Footer from "../../components/user/Footer";
 
 const LandingPage = () => {
   return (
-    <Flex flexDir="column" w="100%">
-      <Navbar />
-      <VStack align="start" gap={{ base: 24, md: 32 }}>
-        <WelcomeBanner />
-        {/* <StatisticsGrid /> */}
-        <AboutGrid />
-        <SectionsGrid />
-        <ReviewGrid />
-      </VStack>
+    <>
+      <WelcomeBanner />
+      <AboutGrid />
+      <SectionsGrid />
+      <ReviewGrid />
       <Footer />
-    </Flex>
+    </>
   );
 };
 

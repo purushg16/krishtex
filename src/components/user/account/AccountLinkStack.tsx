@@ -21,8 +21,8 @@ const AccountLinkStack = () => {
         <AccountLinkBtn
           label="Cart"
           icon={ShoppingCart}
-          route=""
-          active={location == ""}
+          route="cart"
+          active={!location}
         />
         <AccountLinkBtn
           label="My Orders"
@@ -33,8 +33,8 @@ const AccountLinkStack = () => {
         <AccountLinkBtn
           label="Track Order"
           icon={Navigation}
-          route="trackOrder"
-          active={location == "trackOrder"}
+          route="track-order"
+          active={location == "track-order"}
         />
         <AccountLinkBtn
           route="request-for-cancel"
@@ -48,11 +48,11 @@ const AccountLinkStack = () => {
         <Label text="Accounts" color="gray" />
         <VStack w="100%" align="start" my={0}>
           <AccountLinkBtn
-            route="changePassword"
+            route="change-password"
             label="Change Password"
             icon={KeyIcon}
             colorScheme="blue"
-            active={location == "changePassword"}
+            active={location == "change-password"}
           />
           <Box w="100%" onClick={() => localStorage.clear()}>
             <AccountLinkBtn label="Logout" icon={Power} colorScheme="red" />

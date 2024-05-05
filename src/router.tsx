@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 import LandingPage from "./pages/user/LandingPage";
 import AdminLayout from "./layouts/AdminLayout";
 import ProductPage from "./pages/admin/ProductPage";
@@ -48,10 +48,11 @@ const router = createBrowserRouter([
         element: <UserAccountLayout />,
         children: [
           { index: true, element: <CartPage /> },
+          { path: "cart", element: <Navigate to="/account" /> },
           { path: "orders", element: <></> },
-          { path: "trackOrder", element: <></> },
+          { path: "track-order", element: <></> },
           { path: "request-for-cancel", element: <></> },
-          { path: "changePassword", element: <></> },
+          { path: "change-password", element: <></> },
         ],
       },
     ],

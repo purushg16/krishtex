@@ -1,8 +1,14 @@
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem, HStack, Show, VStack } from "@chakra-ui/react";
 import AccountLinkStack from "../components/user/account/AccountLinkStack";
-import { Outlet } from "react-router";
+import { Outlet, useLocation } from "react-router";
+import { Name } from "../utilities/Typography";
+import AccountMenuModal from "../components/user/account/AccountMenuModal";
 
 const UserAccountLayout = () => {
+  const location = useLocation().pathname.split("/")[2];
+
+  const title = !location ? "cart" : location.replace("-", " ");
+
   return (
     <Grid
       p={12}
@@ -23,7 +29,15 @@ const UserAccountLayout = () => {
         <AccountLinkStack />
       </GridItem>
       <GridItem area={"main"}>
-        <Outlet />
+        <VStack gap={4} w="100%" align="start">
+          <HStack w="100%" justify="space-between">
+            <Name text={title} textTransform="capitalize" color="black" />
+            <Show below="md">
+              <AccountMenuModal />
+            </Show>
+          </HStack>
+          <Outlet />
+        </VStack>
       </GridItem>
     </Grid>
   );

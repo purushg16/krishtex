@@ -4,6 +4,7 @@ import ImageUploader from "../../components/admin/AddProduct/ImageUploader";
 import { Name } from "../../utilities/Typography";
 import AddProductSubmitButton from "../../components/admin/AddProduct/AddProductSubmitButton";
 import AddProductCancelButton from "../../components/admin/AddProduct/AddProductCancelButton";
+import SpecificationsTable from "../../components/admin/AddProduct/SpecificationsTable";
 
 const AddProductsPage = () => {
   return (
@@ -25,10 +26,12 @@ const AddProductsPage = () => {
         h="100%"
         spacing={8}
         spacingY={12}
+        mb={12}
       >
         <AddProductDetailsHug />
         <ImageUploader />
       </SimpleGrid>
+      <SpecificationsTable />
     </VStack>
   );
 };

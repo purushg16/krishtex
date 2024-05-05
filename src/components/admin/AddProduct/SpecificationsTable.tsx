@@ -7,7 +7,7 @@ const SpecificationsTable = () => {
   const addSpecifications = useAddProductStore((s) => s.addSpecifications);
 
   return (
-    <VStack gap={2} align="start" w="100%">
+    <VStack gap={2} align="start" w="100%" maxW="100%">
       <HStack justify="space-between" w="100%">
         <FormLabel fontSize="md" color="black" fontWeight={700}>
           Specifications

@@ -1,15 +1,15 @@
-import { Box, Button, Divider, HStack, Icon, Stack } from "@chakra-ui/react";
+import { Box, Divider, HStack, Icon, Stack } from "@chakra-ui/react";
 import {
   BoxIcon,
   Factory,
   MessageSquareQuote,
-  Power,
   ScrollText,
   SquareLibrary,
   SquarePen,
 } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { Label } from "../../utilities/Typography";
+import AdminAccountMenu from "./AdminAccountMenu";
 import SideBarButton from "./SideBarButton";
 
 const AdminSideBar = () => {
@@ -69,17 +69,7 @@ const AdminSideBar = () => {
       </Stack>
       <Stack w="100%">
         <Divider my={4} />
-        <HStack>
-          <Button
-            size="xs"
-            bg="red.100"
-            _hover={{ bg: "red.100" }}
-            color="red"
-            leftIcon={<Icon as={Power} />}
-          >
-            Logout
-          </Button>
-        </HStack>
+        <AdminAccountMenu />
       </Stack>
     </Stack>
   );

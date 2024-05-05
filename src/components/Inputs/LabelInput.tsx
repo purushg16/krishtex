@@ -9,6 +9,7 @@ interface Props {
   smallLabel?: boolean;
   password?: boolean;
   color?: "black" | "gray";
+  inFlex?: boolean;
 }
 
 const LabelInput = ({
@@ -20,6 +21,7 @@ const LabelInput = ({
   number,
   color = "gray",
   smallLabel,
+  inFlex,
 }: Props) => {
   return (
     <VStack align="start" gap={0} w="100%">
@@ -31,7 +33,8 @@ const LabelInput = ({
         {label}
       </FormLabel>
       <Input
-        minW={300}
+        borderRadius={0}
+        minW={inFlex ? 0 : 300}
         color="black"
         _placeholder={{ textTransform: "capitalize" }}
         placeholder={label}

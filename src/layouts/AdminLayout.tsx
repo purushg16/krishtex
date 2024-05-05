@@ -1,12 +1,12 @@
 import { Flex, Grid, GridItem, Show } from "@chakra-ui/react";
 import AdminSideBar from "../components/admin/AdminSideBar";
-import { Outlet } from "react-router";
+import { Navigate, Outlet } from "react-router";
 import AdminAppBar from "../components/admin/AdminAppBar";
 
 const AdminLayout = () => {
+  if (!localStorage.getItem("token")) return <Navigate to="/adminLogin" />;
   return (
     <Flex
-      // maxW={1300}
       mx="auto"
       justify="center"
       align="center"
@@ -14,7 +14,6 @@ const AdminLayout = () => {
       maxH="100svh"
       overflowY="clip"
       pos="relative"
-      // bg={{ base: "blackAlpha.50", md: "none" }}
     >
       <Grid
         overflowY="scroll"
@@ -22,7 +21,6 @@ const AdminLayout = () => {
         minH={400}
         h="100%"
         boxShadow="base"
-        // bg={{ base: "none", md: "whiteAlpha.400" }}
         w="100%"
         templateAreas={{
           base: `"main"`,
@@ -46,7 +44,7 @@ const AdminLayout = () => {
             <AdminSideBar />
           </GridItem>
         </Show>
-        <GridItem area={"main"} overflowY="clip">
+        <GridItem area={"main"} overflowY="clip" overflowX="scroll">
           <Outlet />
         </GridItem>
         <Show below="md">

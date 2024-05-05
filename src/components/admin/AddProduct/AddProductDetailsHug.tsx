@@ -1,7 +1,6 @@
 import { Flex, VStack } from "@chakra-ui/react";
 import LabelInput from "../../Inputs/LabelInput";
 import LabelRadio from "../../Inputs/LabelRadio";
-import SpecificationsTable from "./SpecificationsTable";
 import useAddProductStore from "../../../store/AddProductStore";
 
 const AddProductDetailsHug = () => {
@@ -35,7 +34,6 @@ const AddProductDetailsHug = () => {
           values={["Buyable", "Viewable"]}
           color="black"
         />
-        <SpecificationsTable />
       </VStack>
     </Flex>
   );

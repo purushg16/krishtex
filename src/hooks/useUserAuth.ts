@@ -44,7 +44,15 @@ const useUserVerifyOTP = () => {
 
   return useMutation({
     mutationFn: customerVerifyOTP.authorizationPost,
-    onSuccess: () => navigate("/"),
+    onSuccess: () => {
+      toast({
+        title: "Login successful",
+        duration: 2000,
+        position: "top",
+        status: "success",
+      }),
+        navigate("/login");
+    },
     onError: () =>
       toast({
         title: "Something wrong, Try again later!",
@@ -60,7 +68,7 @@ const useUserLogin = () => {
   const navigate = useNavigate();
 
   return useMutation({
-    mutationFn: customerLogin.postRequest,
+    mutationFn: customerLogin.authorizationPost,
     onSuccess: () => navigate("/"),
     onError: () =>
       toast({

@@ -19,6 +19,7 @@ import CancellationAndRefundPage from "./pages/user/policies/CancellationAndRefu
 import TermsAndConditionsPage from "./pages/user/policies/TermsAndConditionsPage";
 import ContactPage from "./pages/user/policies/ContactPage";
 import AboutPage from "./pages/user/policies/AboutPage";
+import AdminLoginPage from "./pages/admin/auth/AdminLoginPage";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,7 @@ const router = createBrowserRouter([
       },
     ],
   },
+  { path: "/adminLogin", element: <AdminLoginPage /> },
   {
     path: "/admin",
     element: <AdminLayout />,
@@ -65,6 +67,7 @@ const router = createBrowserRouter([
       { path: "orders/:orderId", element: <SingleOrderPage /> },
       { path: "reviews", element: <OrdersPage /> },
       { path: "blogs", element: <OrdersPage /> },
+      { path: "changePassword", element: <AdminLoginPage /> },
     ],
   },
 ]);

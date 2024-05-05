@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
-const baseURL = "https://macomanage.onrender.com";
+const baseURL = "https://krishtex-server.onrender.com";
 
 export interface FetchResponse<T> {
   data: T[];
@@ -32,7 +32,7 @@ export default class APIClient<T> {
     });
   };
 
-  getRequest = (config: AxiosRequestConfig) => {
+  getRequest = (config?: AxiosRequestConfig) => {
     return axiosInstance
       .get<FetchResponse<T>>(this.endpoint, {
         ...config,
@@ -54,7 +54,7 @@ export default class APIClient<T> {
           Authorization: localStorage.getItem("token"),
         },
       })
-      .then((res) => res.data.data)
+      .then((res) => res.data)
       .catch((error) => {
         console.error("Get Request error:", error);
         throw error;

@@ -17,7 +17,7 @@ const RegisterDetailsHug = ({ onSumbit, isLoading }: Props) => {
 
   return (
     <>
-      <VStack w="100%" gap={4} my={12}>
+      <VStack w="100%" gap={4} my={4}>
         <LabelInput
           label="Username"
           value={name}

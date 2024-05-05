@@ -8,6 +8,8 @@ import {
   OTPVerify,
   Register,
 } from "../entities/Credentials";
+import { AxiosError } from "axios";
+import { ResponseError } from "../entities/ResponseError";
 
 const customerRegister = new APIClient<Register>("/userAuth/getOtp");
 const customerVerifyOTP = new APIClient<OTPVerify>("/userAuth/otpCheck");
@@ -28,9 +30,9 @@ const useUserRegister = () => {
         position: "top",
         status: "success",
       }),
-    onError: () =>
+    onError: (err: AxiosError<ResponseError>) =>
       toast({
-        title: "Something wrong, Try again later!",
+        title: err.response?.data.error,
         duration: 2000,
         position: "top",
         status: "error",
@@ -53,9 +55,9 @@ const useUserVerifyOTP = () => {
       }),
         navigate("/login");
     },
-    onError: () =>
+    onError: (err: AxiosError<ResponseError>) =>
       toast({
-        title: "Something wrong, Try again later!",
+        title: err.response?.data.error,
         duration: 2000,
         position: "top",
         status: "error",
@@ -70,9 +72,9 @@ const useUserLogin = () => {
   return useMutation({
     mutationFn: customerLogin.authorizationPost,
     onSuccess: () => navigate("/"),
-    onError: () =>
+    onError: (err: AxiosError<ResponseError>) =>
       toast({
-        title: "Something wrong, Try again later!",
+        title: err.response?.data.error,
         duration: 2000,
         position: "top",
         status: "error",
@@ -92,9 +94,9 @@ const useUserChangePassword = () => {
         position: "top",
         status: "error",
       }),
-    onError: () =>
+    onError: (err: AxiosError<ResponseError>) =>
       toast({
-        title: "Something wrong, Try again later!",
+        title: err.response?.data.error,
         duration: 2000,
         position: "top",
         status: "error",

@@ -8,7 +8,7 @@ import {
   Show,
   VStack,
 } from "@chakra-ui/react";
-import { ShieldCheck, Trophy } from "lucide-react";
+import { ShieldCheck, Trophy, User } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Name, RText } from "../../utilities/Typography";
 import NavbarLinkStack from "./NavbarLinkStack";
@@ -97,6 +97,16 @@ const Navbar = () => {
           <NavbarLinkStack />
         </Show>
         <HStack maxW="100%" flexWrap="wrap">
+          <Link to="/account">
+            <Button
+              colorScheme="primary"
+              variant="outline"
+              order={1}
+              leftIcon={<Icon as={User} />}
+            >
+              Account
+            </Button>
+          </Link>
           <Link to="/register">
             <Button colorScheme="green" order={1} leftIcon={<BsWhatsapp />}>
               Whatsapp

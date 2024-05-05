@@ -9,7 +9,7 @@ import AddOrEditLayout from "./layouts/AddOrEditLayout";
 import SingleOrderPage from "./pages/admin/SingleOrderPage";
 import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
-import UserAccountPage from "./pages/user/UserAccountPage";
+import UserAccountLayout from "./layouts/UserAccountLayout";
 import WishlistPage from "./pages/user/WishlistPage";
 import CartPage from "./pages/user/CartPage";
 import ProductsPage from "./pages/user/ProductsPage";
@@ -31,9 +31,7 @@ const router = createBrowserRouter([
       { path: "register", element: <RegisterPage /> },
       { path: "login", element: <LoginPage /> },
       { path: "products", element: <ProductsPage /> },
-      { path: "account", element: <UserAccountPage /> },
       { path: "wishlist", element: <WishlistPage /> },
-      { path: "cart", element: <CartPage /> },
       { path: "about", element: <AboutPage /> },
       { path: "contact", element: <ContactPage /> },
       { path: "TermsAndConditions", element: <TermsAndConditionsPage /> },
@@ -45,8 +43,20 @@ const router = createBrowserRouter([
         path: "ShippingAndDeliveryPolicy",
         element: <ShippingAndDeliveryPage />,
       },
+      {
+        path: "account",
+        element: <UserAccountLayout />,
+        children: [
+          { index: true, element: <CartPage /> },
+          { path: "orders", element: <></> },
+          { path: "trackOrder", element: <></> },
+          { path: "request-for-cancel", element: <></> },
+          { path: "changePassword", element: <></> },
+        ],
+      },
     ],
   },
+
   { path: "/adminLogin", element: <AdminLoginPage /> },
   {
     path: "/admin",

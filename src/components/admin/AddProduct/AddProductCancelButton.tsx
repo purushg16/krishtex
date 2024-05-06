@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { useRef } from "react";
 import { useNavigate } from "react-router";
-import useAddProductStore from "../../../store/AddProductStore";
+import useAddProductStore from "../../../store/admin/AddProductStore";
 
 const AddProductCancelButton = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();

@@ -1,7 +1,7 @@
 import { Flex, VStack } from "@chakra-ui/react";
 import LabelInput from "../../Inputs/LabelInput";
 import LabelRadio from "../../Inputs/LabelRadio";
-import useAddProductStore from "../../../store/AddProductStore";
+import useAddProductStore from "../../../store/admin/AddProductStore";
 
 const AddProductDetailsHug = () => {
   const name = useAddProductStore((s) => s.name);

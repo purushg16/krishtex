@@ -3,12 +3,7 @@ import APIClient from "../../services/api-client";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import Toaster from "../../functions/toaster";
 import Category from "../../entities/Category";
-
-export interface AddCategory {
-  pId?: string;
-  name: string;
-  imageLink: string;
-}
+import { AddCategory } from "../../entities/AddCategory";
 
 export interface DeleteCategory {
   categoryId: string;

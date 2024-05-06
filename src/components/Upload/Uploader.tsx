@@ -5,11 +5,12 @@ import { Box, Flex, useToast } from "@chakra-ui/react";
 import { Label } from "../../utilities/Typography";
 
 interface Props {
+  limit?: number;
   isDisabled: boolean;
   callback: (files: FileWithPath[]) => void;
 }
 
-const Uploader = ({ isDisabled, callback }: Props) => {
+const Uploader = ({ isDisabled, callback, limit }: Props) => {
   const toast = useToast();
 
   const {
@@ -20,7 +21,7 @@ const Uploader = ({ isDisabled, callback }: Props) => {
     isDragAccept,
     isDragReject,
   } = useDropzone({
-    maxFiles: 5,
+    maxFiles: limit ? limit : 5,
     accept: {
       "image/*": [".jpeg", ".png"],
     },

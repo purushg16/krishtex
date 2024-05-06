@@ -20,8 +20,7 @@ import TermsAndConditionsPage from "./pages/user/policies/TermsAndConditionsPage
 import ContactPage from "./pages/user/policies/ContactPage";
 import AboutPage from "./pages/user/policies/AboutPage";
 import AdminLoginPage from "./pages/admin/auth/AdminLoginPage";
-import AddCategoryPage from "./pages/admin/AddCategoryPage";
-import EditCategoryPage from "./pages/admin/EditCategoryPage";
+import EditProductPage from "./pages/admin/EditProductPage";
 
 const router = createBrowserRouter([
   {
@@ -73,18 +72,10 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <ProductPage /> },
           { path: "add", element: <AddProductsPage /> },
-          { path: "edit/:productId", element: <AddProductsPage /> },
+          { path: "edit/:productId", element: <EditProductPage /> },
         ],
       },
-      {
-        path: "categories",
-        element: <AddOrEditLayout />,
-        children: [
-          { index: true, element: <CategoriesPages /> },
-          { path: "add", element: <AddCategoryPage /> },
-          { path: "edit/:categoryId", element: <EditCategoryPage /> },
-        ],
-      },
+      { path: "categories", element: <CategoriesPages /> },
       { path: "orders", element: <OrdersPage /> },
       { path: "orders/:orderId", element: <SingleOrderPage /> },
       { path: "reviews", element: <OrdersPage /> },

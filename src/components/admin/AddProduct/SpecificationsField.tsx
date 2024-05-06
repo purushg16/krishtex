@@ -1,7 +1,7 @@
 import { VStack, HStack, IconButton, Icon } from "@chakra-ui/react";
 import { MinusCircle } from "lucide-react";
 import LabelInput from "../../Inputs/LabelInput";
-import useAddProductStore from "../../../store/AddProductStore";
+import useAddProductStore from "../../../store/admin/AddProductStore";
 
 const SpecificationsField = () => {
   const specifications = useAddProductStore((s) => s.specifications);

@@ -1,6 +1,6 @@
 import { Box, Icon, IconButton } from "@chakra-ui/react";
 import { DeleteIcon } from "lucide-react";
-import { UploadedImage } from "../../../store/imageStore";
+import { UploadedImage } from "../../../store/admin/imageStore";
 
 interface Props {
   img: UploadedImage;

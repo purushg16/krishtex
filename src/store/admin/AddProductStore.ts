@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import Specification from "../entities/Specification";
+import Specification from "../../entities/Specification";
 import { v4 } from "uuid";
 
 interface AddProduct {

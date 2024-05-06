@@ -24,7 +24,7 @@ const CategoryModal = ({
       <ModalOverlay />
       <ModalContent>
         <ModalCloseButton />
-        <ModalHeader> {category.name} </ModalHeader>
+        <ModalHeader>{category.name}</ModalHeader>
         <ModalBody py={4} borderTop="1px solid" borderColor="gray.100">
           <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={4} w="100%">
             {category.children.map((category) => (

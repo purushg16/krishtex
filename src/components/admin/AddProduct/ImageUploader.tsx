@@ -9,25 +9,37 @@ import {
 import { Label } from "../../../utilities/Typography";
 import Uploader from "../../Upload/Uploader";
 import ImagePreview from "./ImagePreview";
-import useImageStore from "../../../store/imageStore";
+import useImageStore from "../../../store/admin/imageStore";
 
-const ImageUploader = () => {
+const ImageUploader = ({
+  limit,
+  title,
+  small,
+}: {
+  limit: number;
+  title: string;
+  small?: boolean;
+}) => {
   const images = useImageStore((s) => s.images);
   const setImages = useImageStore((s) => s.setImages);
   const deleteImage = useImageStore((s) => s.deleteImage);
 
   return (
     <VStack align="start" w="100%" h="100%">
-      <FormLabel size="md" color="black">
+      <FormLabel fontSize={small ? "xs" : "md"} color="black">
         <Highlight
-          query="(max. 5 images)"
+          query={`(max. ${limit} image(s))`}
           styles={{ fontSize: "xs", fontStyle: "italic" }}
         >
-          Upload Product Images (max. 5 images)
+          {`${title}(max. ${limit} image(s))`}
         </Highlight>
       </FormLabel>
 
-      <Uploader isDisabled={images.length === 5} callback={setImages} />
+      <Uploader
+        isDisabled={images.length === limit}
+        limit={limit}
+        callback={setImages}
+      />
 
       <VStack
         align="start"

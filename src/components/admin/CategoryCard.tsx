@@ -15,16 +15,16 @@ const CategoryCard = ({ category }: { category: Category }) => {
         justify="space-between"
         flexDir="column"
         borderRadius={10}
-        bg={category.parent ? "blue.50" : "gray.50"}
+        bg={category.parent ? "purple.50" : "gray.50"}
         border="1px solid"
-        borderColor={category.parent ? "blue.100" : "gray.100"}
+        borderColor={category.parent ? "purple.100" : "gray.100"}
         p={4}
         color="black"
         pos="relative"
       >
         <Label text={category.name} />
         <HStack maxW="100%" flexWrap="wrap">
-          <Tag colorScheme={!category.parent ? "teal" : "blue"}>
+          <Tag colorScheme={!category.parent ? "gray" : "green"}>
             {category.parent ? "Parent" : "Non-Parent"}
           </Tag>
           {category.parent && (

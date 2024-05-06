@@ -29,7 +29,7 @@ const AddProductsPage = () => {
         mb={12}
       >
         <AddProductDetailsHug />
-        <ImageUploader />
+        <ImageUploader limit={5} title="Upload Product Images" />
       </SimpleGrid>
       <SpecificationsTable />
     </VStack>

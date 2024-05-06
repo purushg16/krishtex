@@ -1,6 +1,6 @@
 import { Button, FormLabel, HStack, Icon, VStack } from "@chakra-ui/react";
 import { PlusCircle } from "lucide-react";
-import useAddProductStore from "../../../store/AddProductStore";
+import useAddProductStore from "../../../store/admin/AddProductStore";
 import SpecificationsField from "./SpecificationsField";
 
 const SpecificationsTable = () => {

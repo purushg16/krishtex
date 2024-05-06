@@ -11,7 +11,7 @@ const AddProductsPage = () => {
     <VStack w="100%" p={4}>
       <HStack justify="space-between" w="100%">
         <VStack align="start" w="100%">
-          <Name text="Add New Product" color="black" />
+          <Name text="Add New Product" color="black" small />
         </VStack>
         <HStack gap={4}>
           <AddProductCancelButton />

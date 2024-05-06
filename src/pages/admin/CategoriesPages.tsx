@@ -2,15 +2,18 @@ import { Box, Button, SimpleGrid, Stack, VStack } from "@chakra-ui/react";
 import CategoryCard from "../../components/admin/CategoryCard";
 import categories from "../../data/categories";
 import { Name } from "../../utilities/Typography";
+import { Link } from "react-router-dom";
 
 const CategoriesPages = () => {
   return (
     <Stack p={4} h="100%">
       <VStack align="start" gap={4}>
         <Name text="Categories" color="black" />
-        <Button size="xs" colorScheme="primary">
-          Add New Category
-        </Button>
+        <Link to="add">
+          <Button size="sm" colorScheme="primary">
+            Add New Category
+          </Button>
+        </Link>
       </VStack>
       <Box
         w="100%"

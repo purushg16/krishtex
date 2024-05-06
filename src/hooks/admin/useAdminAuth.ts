@@ -16,7 +16,7 @@ const useAdminLogin = () => {
 
   return useMutation({
     mutationFn: adminLogin.authorizationPost,
-    onSuccess: () => navigate("/"),
+    onSuccess: () => navigate("/admin"),
     onError: (error) => toast(Toaster("error", error.message)),
   });
 };

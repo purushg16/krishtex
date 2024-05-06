@@ -7,20 +7,18 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
-  SimpleGrid,
   VStack,
   useDisclosure,
 } from "@chakra-ui/react";
-import { Label, Name } from "../../utilities/Typography";
 import LabelInput from "../../components/Inputs/LabelInput";
-import AddCategorySubmitButton from "../../components/admin/Category/AddCategorySubmitButton";
-import useAddCategoryStore from "../../store/admin/addCategoryStore";
 import ImageUploader from "../../components/admin/AddProduct/ImageUploader";
-import CategoriesGrid from "../../components/admin/Category/CategoriesGrid";
+import AddCategorySubmitButton from "../../components/admin/Category/AddCategorySubmitButton";
+import SelectCategoryModal from "../../components/admin/Category/SelectCategoryModal";
+import useAddCategoryStore from "../../store/admin/addCategoryStore";
+import { Label, Name } from "../../utilities/Typography";
 
 const AddCategoryModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
   const name = useAddCategoryStore((s) => s.name);
   const setName = useAddCategoryStore((s) => s.setName);
   const isParent = useAddCategoryStore((s) => s.isParent);
@@ -32,51 +30,54 @@ const AddCategoryModal = () => {
         New Category
       </Button>
 
-      <Modal isOpen={isOpen} onClose={onClose} isCentered size="full">
+      <Modal
+        isOpen={isOpen}
+        onClose={onClose}
+        isCentered
+        size={{ base: "full", md: "xl" }}
+        closeOnEsc={false}
+        closeOnOverlayClick={false}
+      >
         <ModalOverlay />
-        <ModalContent borderRadius={0}>
+        <ModalContent borderRadius={0} maxH={700} overflowY="scroll">
           <ModalHeader px={4}>
             <Name text="New Category" small />
           </ModalHeader>
-          <ModalBody mb={12} p={4}>
-            <SimpleGrid w="100%" columns={{ base: 1, md: 2 }} spacing={12}>
-              <VStack gap={8} w="100%">
+          <ModalBody p={4}>
+            <VStack gap={8} w="100%">
+              <VStack gap={2} w="100%" align="start">
                 <LabelInput
                   label="Name"
                   value={name}
                   setText={setName}
                   smallLabel
                 />
-
-                <VStack align="start" w="100%">
-                  <Label text="Is this a parent category?" color="gray" small />
-
-                  <Checkbox
-                    defaultChecked
-                    isChecked={isParent}
-                    onChange={() => setIsParent(!isParent)}
-                    colorScheme="primary"
-                  >
-                    Is Parent
-                  </Checkbox>
-                </VStack>
-
-                <VStack
-                  align="start"
-                  w="100%"
-                  opacity={isParent ? 1 : 0.5}
-                  pointerEvents={isParent ? "all" : "none"}
-                  cursor={isParent ? "auto" : "not-allowed"}
+                <Checkbox
+                  size="sm"
+                  defaultChecked
+                  isChecked={isParent}
+                  onChange={() => setIsParent(!isParent)}
+                  colorScheme="primary"
                 >
-                  <Label text="Category" color="gray" small />
-                  <CategoriesGrid size={{ base: 1, md: 2, lg: 3 }} />
-                </VStack>
+                  Is this a Parent category?
+                </Checkbox>
               </VStack>
+
+              <VStack
+                align="start"
+                w="100%"
+                opacity={!isParent ? 1 : 0.5}
+                pointerEvents={!isParent ? "all" : "none"}
+                cursor={!isParent ? "auto" : "not-allowed"}
+              >
+                <Label text="Category" color="gray" small />
+                <SelectCategoryModal />
+              </VStack>
+
               <VStack align="start" w="100%">
-                <Label text="Image" color="gray" small />
-                <ImageUploader limit={1} title="Upload category image" small />
+                <ImageUploader limit={1} title="Upload category image" />
               </VStack>
-            </SimpleGrid>
+            </VStack>
           </ModalBody>
 
           <ModalFooter>

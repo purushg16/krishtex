@@ -15,9 +15,9 @@ const CategoryCard = ({ category }: { category: Category }) => {
         justify="space-between"
         flexDir="column"
         borderRadius={10}
-        bg={category.parent ? "purple.50" : "gray.50"}
+        bg={category.parent ? "blue.50" : "gray.50"}
         border="1px solid"
-        borderColor={category.parent ? "purple.100" : "gray.100"}
+        borderColor={category.parent ? "blue.100" : "gray.100"}
         p={4}
         color="black"
         pos="relative"

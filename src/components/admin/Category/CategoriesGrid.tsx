@@ -1,17 +1,21 @@
-import { SimpleGrid } from "@chakra-ui/react";
-import categories from "../../../data/categories";
+import { SimpleGrid, Spinner } from "@chakra-ui/react";
 import CategoryCard from "../CategoryCard";
+import { useGetAllCategories } from "../../../hooks/admin/useCategory";
 
 const CategoriesGrid = ({
   size,
 }: {
   size: { base: number; md: number; lg: number };
 }) => {
+  const { data: categories, isLoading } = useGetAllCategories();
+
   return (
     <SimpleGrid columns={size} spacing={4} w="100%">
-      {categories.map((category, i) => (
-        <CategoryCard category={category} key={i} />
-      ))}
+      {isLoading && <Spinner />}
+      {categories &&
+        categories.map((category, i) => (
+          <CategoryCard category={category} key={i} />
+        ))}
     </SimpleGrid>
   );
 };

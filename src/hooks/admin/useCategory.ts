@@ -1,9 +1,11 @@
 import { useToast } from "@chakra-ui/react";
 import APIClient from "../../services/api-client";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import Toaster from "../../functions/toaster";
 import Category from "../../entities/Category";
 import { AddCategory } from "../../entities/AddCategory";
+import useAddCategoryStore from "../../store/admin/addCategoryStore";
+import useImageStore from "../../store/admin/imageStore";
 
 export interface DeleteCategory {
   categoryId: string;
@@ -22,12 +24,24 @@ const useGetAllCategories = () => {
   });
 };
 
-const useAddCategory = () => {
+const useAddCategory = (callback: () => void) => {
   const toast = useToast();
+  const queryClient = useQueryClient();
+  const setName = useAddCategoryStore((s) => s.setName);
+  const setPId = useAddCategoryStore((s) => s.setPId);
+  const clearImages = useImageStore((s) => s.clearImages);
 
   return useMutation({
     mutationFn: addCategory.postRequest,
-    onSuccess: () => toast(Toaster("success", "Category created successfully")),
+    onSuccess: () => {
+      toast(Toaster("success", "Category created successfully"));
+      queryClient.invalidateQueries({ queryKey: ["categories"] });
+
+      setName("");
+      setPId("");
+      clearImages();
+      callback();
+    },
     onError: () =>
       toast(Toaster("error", "Something went wrong, Try again later!")),
   });

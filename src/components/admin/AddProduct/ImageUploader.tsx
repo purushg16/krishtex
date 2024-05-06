@@ -10,6 +10,7 @@ import { Label } from "../../../utilities/Typography";
 import Uploader from "../../Upload/Uploader";
 import ImagePreview from "./ImagePreview";
 import useImageStore from "../../../store/admin/imageStore";
+import { FileWithPath } from "react-dropzone";
 
 const ImageUploader = ({
   limit,
@@ -22,7 +23,13 @@ const ImageUploader = ({
 }) => {
   const images = useImageStore((s) => s.images);
   const setImages = useImageStore((s) => s.setImages);
+  const clearImages = useImageStore((s) => s.clearImages);
   const deleteImage = useImageStore((s) => s.deleteImage);
+
+  const handleImages = (files: FileWithPath[]) => {
+    clearImages();
+    setImages(files);
+  };
 
   return (
     <VStack align="start" w="100%" h="100%">
@@ -38,7 +45,7 @@ const ImageUploader = ({
       <Uploader
         isDisabled={images.length === limit}
         limit={limit}
-        callback={setImages}
+        callback={handleImages}
       />
 
       <VStack

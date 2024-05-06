@@ -100,12 +100,13 @@ const Label = ({
   textTransform,
   small,
   weight = "semibold",
+  nowrap = true,
 }: Props) => (
   <Text
     fontSize={small ? "12px" : "16px"}
     fontWeight={weight}
     color={color}
-    whiteSpace={"nowrap"}
+    whiteSpace={nowrap ? "nowrap" : "wrap"}
     textTransform={textTransform}
   >
     {text}
